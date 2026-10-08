@@ -20,30 +20,30 @@ const categories: Category[] = [
     label: 'Premium Rooms',
     text: 'Take a closer look at the interiors and details of our Premium room category.',
     images: [
-      { src: '/img/rooms/1.jpg', caption: 'Premium Room interior (illustrative)' },
-      { src: '/img/rooms/2.jpg', caption: 'Premium Room interior (illustrative)' },
-      { src: '/img/home_1.jpg', caption: 'Premium Room bathroom (illustrative)' },
+      { src: `${import.meta.env.BASE_URL}img/rooms/1.jpg`, caption: 'Premium Room interior (illustrative)' },
+      { src: `${import.meta.env.BASE_URL}img/rooms/2.jpg`, caption: 'Premium Room interior (illustrative)' },
+      { src: `${import.meta.env.BASE_URL}img/home_1.jpg`, caption: 'Premium Room bathroom (illustrative)' },
     ],
   },
   {
     label: 'Superior Rooms',
     text: 'Explore the interiors and details of our Superior room category.',
-    images: [{ src: '/img/rooms/3.jpg', caption: 'Superior Room interior (illustrative)' }],
+    images: [{ src: `${import.meta.env.BASE_URL}img/rooms/3.jpg`, caption: 'Superior Room interior (illustrative)' }],
   },
   {
     label: 'SEWABHAAT Restaurant',
     text: 'See the setting for Assamese heritage dining at our in-house restaurant.',
-    images: [{ src: '/img/local_amenities_1.jpg', caption: 'SEWABHAAT dining area (illustrative)' }],
+    images: [{ src: `${import.meta.env.BASE_URL}img/local_amenities_1.jpg`, caption: 'SEWABHAAT dining area (illustrative)' }],
   },
   {
     label: 'Common Spaces',
     text: 'Explore the shared areas that form part of your stay at the property.',
-    images: [{ src: '/img/home_2.jpg', caption: 'Common space (illustrative)' }],
+    images: [{ src: `${import.meta.env.BASE_URL}img/home_2.jpg`, caption: 'Common space (illustrative)' }],
   },
   {
     label: 'Surroundings',
     text: 'Discover glimpses of the greenery and local setting around our Kaziranga stay.',
-    images: [{ src: '/img/hero_home_1.jpg', caption: 'Greenery around Kaziranga (illustrative)' }],
+    images: [{ src: `${import.meta.env.BASE_URL}img/hero_home_1.jpg`, caption: 'Greenery around Kaziranga (illustrative)' }],
   },
 ]
 
@@ -80,7 +80,7 @@ function Gallery() {
         eyebrow="Photo gallery"
         title="A Closer Look at Areca Crown Hariyali"
         text="Discover our property, rooms, restaurant and surroundings through photographs. Explore the details of your stay and the natural setting that makes our Kaziranga location special."
-        image="/img/hero_home_1.jpg"
+        image={`${import.meta.env.BASE_URL}img/hero_home_1.jpg`}
       />
 
       <div className="container margin_120_95">

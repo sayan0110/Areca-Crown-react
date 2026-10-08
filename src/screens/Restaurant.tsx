@@ -11,7 +11,7 @@ const diningEnquiry = whatsappLink(WHATSAPP, ['Hello Areca Crown Hariyali, I wou
 const menuEnquiry = whatsappLink(WHATSAPP, ['Hello Areca Crown Hariyali, I would like to ask about the current SEWABHAAT menu and meal prices.'])
 
 // restaurant/slides/slide_*.jpg are not in the project yet, so an existing image stands in for them.
-const heroImage = '/img/local_amenities_1.jpg'
+const heroImage = `${import.meta.env.BASE_URL}img/local_amenities_1.jpg`
 
 const highlights = [
   { icon: 'customicon-cocktail', title: 'Assamese Heritage Dining', text: 'Experience the restaurant’s focus on Assam’s food heritage. Ask the team about the dishes currently available.' },

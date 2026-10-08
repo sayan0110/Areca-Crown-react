@@ -6,7 +6,7 @@ import EnquirySection from '../components/EnquirySection'
 import { usePageMeta } from '../utils/usePageMeta'
 
 // about_1.jpg is not in the project yet, so existing images stand in for it.
-const aboutImage = '/img/home_2.jpg'
+const aboutImage = `${import.meta.env.BASE_URL}img/home_2.jpg`
 
 const nameMeanings = [
   {

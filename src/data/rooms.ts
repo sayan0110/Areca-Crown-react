@@ -33,4 +33,4 @@ export const stayInclusions: Facility[] = [
 ]
 
 // rooms/opt_*.jpg (gallery) are not in the project yet, so the existing room photos stand in for them.
-export const roomGalleryImages = ['/img/rooms/1.jpg', '/img/rooms/2.jpg', '/img/rooms/3.jpg', '/img/rooms/2.jpg']
+export const roomGalleryImages = [`${import.meta.env.BASE_URL}img/rooms/1.jpg`, `${import.meta.env.BASE_URL}img/rooms/2.jpg`, `${import.meta.env.BASE_URL}img/rooms/3.jpg`, `${import.meta.env.BASE_URL}img/rooms/2.jpg`]

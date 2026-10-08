@@ -15,7 +15,7 @@ type Props = {
   heading?: string
 }
 
-function TestimonialsCarousel({ testimonials, backgroundImage = '/img/hero_home_1.jpg', eyebrow = 'Testimonials', heading = 'What Clients Says' }: Props) {
+function TestimonialsCarousel({ testimonials, backgroundImage = `${import.meta.env.BASE_URL}img/hero_home_1.jpg`, eyebrow = 'Testimonials', heading = 'What Clients Says' }: Props) {
   const [active, setActive] = useState(0)
   const current = testimonials[active]
 
@@ -34,7 +34,7 @@ function TestimonialsCarousel({ testimonials, backgroundImage = '/img/hero_home_
                         <div className="box_overlay">
                           <div className="pic">
                             <figure>
-                              <img src={current.image ?? '/img/testimonial_1.jpg'} alt="" className="img-circle" />
+                              <img src={current.image ?? `${import.meta.env.BASE_URL}img/testimonial_1.jpg`} alt="" className="img-circle" />
                             </figure>
                             <h4>
                               {current.name}

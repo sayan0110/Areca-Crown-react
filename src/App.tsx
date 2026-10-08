@@ -8,7 +8,7 @@ import { routes } from './routes'
 
 function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename={import.meta.env.BASE_URL}>
       <Header />
       <ScrollCue />
       <ScrollToHash />

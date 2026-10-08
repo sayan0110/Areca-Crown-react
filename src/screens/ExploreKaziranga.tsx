@@ -7,8 +7,8 @@ import EnquirySection from '../components/EnquirySection'
 import { usePageMeta } from '../utils/usePageMeta'
 
 // assets/kaziranga.jpg is not in the project yet, so existing images stand in for it.
-const heroImage = '/img/hero_home_1.jpg'
-const kazirangaImage = '/img/home_2.jpg'
+const heroImage = `${import.meta.env.BASE_URL}img/hero_home_1.jpg`
+const kazirangaImage = `${import.meta.env.BASE_URL}img/home_2.jpg`
 
 const experiences = [
   {

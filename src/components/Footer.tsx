@@ -46,7 +46,7 @@ function Footer({
       <a href="https://commons.wikimedia.org/wiki/File:Rhinoceros_unicornis,_Kaziranga_(2006).jpg">Source</a> · <a href="https://creativecommons.org/licenses/by-sa/3.0/">Licence</a>
     </>
   ),
-  backgroundImage = '/img/rooms/3.jpg',
+  backgroundImage = `${import.meta.env.BASE_URL}img/rooms/3.jpg`,
 }: Props) {
   const { pathname } = useLocation()
   const footerRef = useRef<HTMLElement>(null)

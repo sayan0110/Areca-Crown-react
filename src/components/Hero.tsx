@@ -13,7 +13,7 @@ function Hero({
   eyebrow = 'Areca Crown Hariyali • Kaziranga',
   title = 'A Peaceful Stay, Rooted in Assam',
   text = 'Discover a nature-inspired stay in Bosagaon, Kaziranga, where green surroundings, comfortable rooms and Assamese warmth welcome you. Stay beside National Highway 715 and make time for wildlife experiences, local walks and a slower pace of travel.',
-  backgroundImage = '/img/hero_home_1.jpg',
+  backgroundImage = `${import.meta.env.BASE_URL}img/hero_home_1.jpg`,
 }: Props) {
   return (
     <div className="hero home-search full-height is-transitioned" style={{ position: 'relative' }}>

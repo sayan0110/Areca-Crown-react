@@ -18,7 +18,7 @@ type Props = {
 }
 
 // Inner-page hero ("hero medium-height" / "hero full-height") with a background image and centred title.
-function PageHero({ title, eyebrow, text, image = '/img/hero_home_1.jpg', fullHeight = false, narrow = false, scrollTo, kenburns = false, cta }: Props) {
+function PageHero({ title, eyebrow, text, image = `${import.meta.env.BASE_URL}img/hero_home_1.jpg`, fullHeight = false, narrow = false, scrollTo, kenburns = false, cta }: Props) {
   const content = (
     <>
       {eyebrow && <small className="slide-animated one">{eyebrow}</small>}

@@ -14,8 +14,8 @@ type Props = {
 }
 
 function AboutIntro({
-  image = '/img/home_2.jpg',
-  overlayImage = '/img/home_1.jpg',
+  image = `${import.meta.env.BASE_URL}img/home_2.jpg`,
+  overlayImage = `${import.meta.env.BASE_URL}img/home_1.jpg`,
   eyebrow = 'Welcome to Areca Crown Hariyali',
   heading = 'The Warmth of Assam. The Calm of Kaziranga.',
   lead = 'Set in Bosagaon beside National Highway 715, Areca Crown Hariyali brings together a peaceful natural setting and the comforts that make travel easier. Our eight-room property offers six Premium rooms and two Superior rooms, with breakfast, complimentary Wi-Fi and parking included in the listed stay plan.',

@@ -13,7 +13,7 @@ import { usePageMeta } from '../utils/usePageMeta'
 
 const rooms = [
   {
-    image: '/img/rooms/1.jpg',
+    image: `${import.meta.env.BASE_URL}img/rooms/1.jpg`,
     eyebrow: 'Listed tariff: ₹3,499',
     title: 'Premium Room',
     text: 'A comfortable base for relaxed mornings and restful evenings in Kaziranga. With six rooms in this category, our Premium accommodation is a welcoming choice for couples, families and nature-loving travellers.',
@@ -23,7 +23,7 @@ const rooms = [
     align: 'start' as const,
   },
   {
-    image: '/img/rooms/3.jpg',
+    image: `${import.meta.env.BASE_URL}img/rooms/3.jpg`,
     eyebrow: 'Listed tariff: ₹2,499',
     title: 'Superior Room',
     text: 'A welcoming place to pause between your journeys through Assam. Our two Superior rooms bring together a peaceful stay and the essential conveniences of breakfast, free Wi-Fi and parking.',
@@ -94,7 +94,7 @@ function Home() {
       <div className="container margin_120_95">
         <LocalAmenity
           className="add_bottom_90"
-          image="/img/local_amenities_1.jpg"
+          image={`${import.meta.env.BASE_URL}img/local_amenities_1.jpg`}
           eyebrow="Wildlife • Nature • Local life"
           title="Make Time for the Kaziranga Experience"
           text="Discover a landscape shaped by wildlife, greenery and the everyday rhythms of Assam. Ask about jeep safaris, permitted elephant safaris, nature walks, village visits and tea garden walks. Activities depend on local permissions, weather and availability; confirm arrangements and charges before planning your day."
@@ -103,7 +103,7 @@ function Home() {
         />
         <LocalAmenity
           reverse
-          image="/img/local_amenities_3.jpg"
+          image={`${import.meta.env.BASE_URL}img/local_amenities_3.jpg`}
           eyebrow="A glimpse of your stay"
           title="See the Spaces. Picture Your Journey."
           text="Explore photographs of our property, Premium and Superior rooms, common spaces and surroundings. Discover the details that give Areca Crown Hariyali its connection to Assam."

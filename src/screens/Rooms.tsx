@@ -19,7 +19,7 @@ function categoryFacilities(count: number, tariff: string) {
 // Images: rooms/4.jpg (hero) is not in the project yet, so rooms/2.jpg stands in for it.
 const rooms = [
   {
-    image: '/img/rooms/1.jpg',
+    image: `${import.meta.env.BASE_URL}img/rooms/1.jpg`,
     eyebrow: 'Premium room',
     title: 'A Welcoming Stay in Premium',
     text: 'Return from a day of exploring to a comfortable room and a peaceful setting. Our Premium category offers the essential stay inclusions of breakfast, free Wi-Fi and parking, making it easy to settle into your Kaziranga visit.',
@@ -30,7 +30,7 @@ const rooms = [
     align: 'start' as const,
   },
   {
-    image: '/img/rooms/3.jpg',
+    image: `${import.meta.env.BASE_URL}img/rooms/3.jpg`,
     eyebrow: 'Superior room',
     title: 'A Welcoming Stay in Superior',
     text: 'Return from a day of exploring to a comfortable room and a peaceful setting. Our Superior category offers the essential stay inclusions of breakfast, free Wi-Fi and parking, making it easy to settle into your Kaziranga visit.',
@@ -73,7 +73,7 @@ function Rooms() {
         eyebrow="Rooms in Kaziranga"
         title="Find Your Place to Unwind"
         text="Choose a Premium or Superior room at Areca Crown Hariyali. Enjoy a welcoming stay with breakfast, complimentary Wi-Fi and parking in the listed plan, alongside convenient access to National Highway 715."
-        image="/img/rooms/2.jpg"
+        image={`${import.meta.env.BASE_URL}img/rooms/2.jpg`}
       />
 
       <CenteredTextSection

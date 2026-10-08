@@ -40,7 +40,7 @@ function Contacts() {
         eyebrow="Contact & bookings"
         title="Let’s Plan Your Kaziranga Stay"
         text="Ask about rooms, dining or local experiences at Areca Crown Hariyali. Share your dates and requirements so our team can help you confirm the arrangements before your visit."
-        image="/img/hero_home_1.jpg"
+        image={`${import.meta.env.BASE_URL}img/hero_home_1.jpg`}
       />
 
       <div className="container margin_120_95 pb-0" id="enquiry">
