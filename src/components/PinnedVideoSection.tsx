@@ -12,9 +12,9 @@ type Props = {
 
 function PinnedVideoSection({
   sources = [
-    { src: '/video/swimming_pool_2.mp4', type: 'video/mp4' },
-    { src: '/video/swimming_pool_2.webm', type: 'video/webm' },
-    { src: '/video/swimming_pool_2.ogv', type: 'video/ogg' },
+    // { src: '/video/swimming_pool_2.mp4', type: 'video/mp4' },
+    // { src: '/video/swimming_pool_2.webm', type: 'video/webm' },
+    // { src: '/video/swimming_pool_2.ogv', type: 'video/ogg' },
   ],
   eyebrow = 'A moment in Kaziranga',
   heading = 'Take a Closer Look at Your Stay',
