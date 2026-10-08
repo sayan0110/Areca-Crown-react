@@ -1,0 +1,43 @@
+import type { ReactNode } from 'react'
+import SectionTitle from './SectionTitle'
+
+type VideoSource = { src: string; type: string }
+
+type Props = {
+  sources?: VideoSource[]
+  eyebrow?: string
+  heading?: ReactNode
+}
+
+function PinnedVideoSection({
+  sources = [
+    { src: '/video/swimming_pool_2.mp4', type: 'video/mp4' },
+    { src: '/video/swimming_pool_2.webm', type: 'video/webm' },
+    { src: '/video/swimming_pool_2.ogv', type: 'video/ogg' },
+  ],
+  eyebrow = 'Luxury Hotel Experience',
+  heading = (
+    <>
+      Enjoy in a very
+      <br /> Immersive Relax
+    </>
+  ),
+}: Props) {
+  return (
+    <div className="pinned-image pinned-image--medium">
+      <div className="pinned-image__container" id="section_video">
+        <video loop muted autoPlay playsInline id="video_home">
+          {sources.map((s) => (
+            <source key={s.src} src={s.src} type={s.type} />
+          ))}
+        </video>
+        <div className="pinned-image__container-overlay"></div>
+      </div>
+      <div className="pinned_over_content">
+        <SectionTitle className="white" eyebrow={eyebrow} heading={heading} animated eyebrowDelay={200} headingDelay={300} />
+      </div>
+    </div>
+  )
+}
+
+export default PinnedVideoSection

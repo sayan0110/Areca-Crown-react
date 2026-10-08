@@ -1,0 +1,48 @@
+/*============================================================================================*/
+/* Your custom styles below */
+/*============================================================================================*/
+
+/* Header turns white with a gray bottom border once the hero has scrolled past */
+header.fixed_header.sticky {
+  border-bottom: 1px solid gray;
+}
+
+/* Text logo in the header */
+.areca-logo {
+  display: inline-block;
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 1.6rem;
+  font-weight: 500;
+  letter-spacing: 3px;
+  line-height: 1.1;
+  text-align: center;
+  white-space: nowrap;
+}
+.areca-logo small {
+  display: block;
+  font-family: Montserrat, sans-serif;
+  font-size: 0.6rem;
+  letter-spacing: 8px;
+  margin-top: 4px;
+}
+header .logo_normal .areca-logo {
+  color: #fff;
+}
+header .logo_sticky .areca-logo,
+header .logo_panel .areca-logo {
+  color: #333;
+}
+
+/* About page FAQ */
+.areca-faq {
+  border-bottom: 1px solid #ededed;
+  padding: 18px 0;
+}
+.areca-faq summary {
+  cursor: pointer;
+  font-weight: 600;
+  color: #333;
+}
+.areca-faq p {
+  margin: 12px 0 0;
+}
