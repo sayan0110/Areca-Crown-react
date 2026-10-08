@@ -41,10 +41,7 @@ function Footer({
   timings = ['Check-in: 1:00 PM', 'Check-out: 11:00 AM'],
   copyright = `© ${new Date().getFullYear()} Areca Crown Hariyali. All rights reserved.`,
   note = (
-    <>
-      Template demo photos and video are illustrative, not property assets. Kaziranga photo: Yathin S Krishnappa, CC BY-SA 3.0, displayed with cropping.{' '}
-      <a href="https://commons.wikimedia.org/wiki/File:Rhinoceros_unicornis,_Kaziranga_(2006).jpg">Source</a> · <a href="https://creativecommons.org/licenses/by-sa/3.0/">Licence</a>
-    </>
+    <></>
   ),
   backgroundImage = `${import.meta.env.BASE_URL}img/rooms/3.jpg`,
 }: Props) {
@@ -162,7 +159,7 @@ function Footer({
         </div>
         <div className="row add_top_25">
           <div className="col-lg-12">
-            <p>{copyright}</p>
+            <p className='text-center'>{copyright}</p>
             <p className="demo-note">{note}</p>
           </div>
         </div>
