@@ -148,7 +148,7 @@ function Footer({
           <div className="col-lg-3 col-md-6">
             <h5>Direct Enquiries</h5>
             <p>{enquiryText}</p>
-            <a className="btn_1" href={whatsappHref}>
+            <a className="btn_1" href={whatsappHref} target="_blank" rel="noopener noreferrer">
               WhatsApp Us
             </a>
             <p className="mt-3">
