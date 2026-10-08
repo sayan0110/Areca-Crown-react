@@ -1,21 +1,15 @@
 import type { ReactNode } from 'react'
 import SectionTitle from './SectionTitle'
 
-type VideoSource = { src: string; type: string }
-
 type Props = {
-  sources?: VideoSource[]
+  image?: string
   eyebrow?: string
   heading?: ReactNode
   text?: string
 }
 
 function PinnedVideoSection({
-  sources = [
-    // { src: '/video/swimming_pool_2.mp4', type: 'video/mp4' },
-    // { src: '/video/swimming_pool_2.webm', type: 'video/webm' },
-    // { src: '/video/swimming_pool_2.ogv', type: 'video/ogg' },
-  ],
+  image = `${import.meta.env.BASE_URL}img/hero_home_1.jpg`,
   eyebrow = 'A moment in Kaziranga',
   heading = 'Take a Closer Look at Your Stay',
   text = 'Discover the character of Areca Crown Hariyali, from its areca-inspired façade to its green surroundings and welcoming spaces. Let your Kaziranga journey begin with a glimpse of the setting that awaits you.',
@@ -23,11 +17,7 @@ function PinnedVideoSection({
   return (
     <div className="pinned-image pinned-image--medium">
       <div className="pinned-image__container" id="section_video">
-        <video loop muted autoPlay playsInline id="video_home">
-          {sources.map((s) => (
-            <source key={s.src} src={s.src} type={s.type} />
-          ))}
-        </video>
+        <img src={image} alt="" />
         <div className="pinned-image__container-overlay"></div>
       </div>
       <div className="pinned_over_content">
