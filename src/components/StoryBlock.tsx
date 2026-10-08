@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import SectionTitle from './SectionTitle'
 
 type Props = {
@@ -7,10 +8,11 @@ type Props = {
   paragraphs: string[]
   reverse?: boolean
   pattern?: boolean
+  button?: { label: string; to: string }
 }
 
 // Image + text row. `pattern` swaps the white background for the patterned one.
-function StoryBlock({ image, eyebrow, heading, paragraphs, reverse = false, pattern = false }: Props) {
+function StoryBlock({ image, eyebrow, heading, paragraphs, reverse = false, pattern = false, button }: Props) {
   return (
     <div className={pattern ? 'pattern_2' : 'bg_white'}>
       <div className="container margin_120_95">
@@ -23,6 +25,13 @@ function StoryBlock({ image, eyebrow, heading, paragraphs, reverse = false, patt
             {paragraphs.map((p) => (
               <p key={p}>{p}</p>
             ))}
+            {button && (
+              <p>
+                <Link to={button.to} className="btn_1 outline">
+                  {button.label}
+                </Link>
+              </p>
+            )}
           </div>
         </div>
       </div>

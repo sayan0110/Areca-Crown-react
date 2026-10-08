@@ -2,8 +2,13 @@ import { useEffect } from 'react'
 import commonScriptsUrl from '../js/common_scripts.js?url'
 import { loadScript } from '../utils/loadScript'
 
+export type GalleryImage = {
+  src: string
+  caption: string
+}
+
 type Props = {
-  images: string[]
+  images: GalleryImage[]
   group?: string
 }
 
@@ -22,17 +27,20 @@ function GalleryGrid({ images, group = 'gallery_1' }: Props) {
 
   return (
     <div className="isotope-wrapper">
-      <div className="row justify-content-center">
-        {images.map((src) => (
-          <div className="item col-xl-4 col-lg-6 mb-4" key={src}>
+      <div className="gallery-masonry">
+        {images.map(({ src, caption }) => (
+          <div className="item" key={src}>
             <div className="item-img" data-cue="slideInUp">
-              <img src={src} alt="" />
+              <img src={src} alt={caption} />
               <div className="content">
-                <a data-fslightbox={group} data-type="image" href={src}>
+                <a data-fslightbox={group} data-type="image" data-caption={caption} href={src}>
                   <i className="bi bi-arrows-angle-expand"></i>
                 </a>
               </div>
             </div>
+            <p className="mt-2 mb-0 text-center">
+              <small>{caption}</small>
+            </p>
           </div>
         ))}
       </div>

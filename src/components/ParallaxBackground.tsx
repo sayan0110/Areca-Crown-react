@@ -5,12 +5,13 @@ type Props = {
   // Fraction of the scroll distance the image lags behind (the template's data-speed).
   speed?: number
   // Slow zoom-in, the template's `kenburns` class.
-  kenburns?: boolean
+  kenburns?: boolean,
+  blur?: number
 }
 
 // Replaces jarallax for hero sections: the image fills the parent (which must be position: relative)
 // and drifts down at `speed` of the scroll distance, so it appears to move slower than the page.
-function ParallaxBackground({ image, speed = 0.2, kenburns = false }: Props) {
+function ParallaxBackground({ image, speed = 0.2, kenburns = false, blur }: Props) {
   const clipRef = useRef<HTMLDivElement>(null)
   const layerRef = useRef<HTMLDivElement>(null)
 
@@ -43,7 +44,7 @@ function ParallaxBackground({ image, speed = 0.2, kenburns = false }: Props) {
   }, [speed])
 
   return (
-    <div ref={clipRef} style={{ position: 'absolute', inset: 0, overflow: 'hidden' }}>
+    <div ref={clipRef} style={{ position: 'absolute', inset: 0, overflow: 'hidden', filter: blur ? `blur(${blur}rem)` : `blur(0rem)`, willChange: 'transform' }}>
       <div ref={layerRef} style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: `${(1 + speed) * 100}%`, willChange: 'transform' }}>
         <div
           style={{

@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import SectionTitle from './SectionTitle'
 
 type Props = {
@@ -8,16 +9,20 @@ type Props = {
   lead?: string
   text?: string
   signature?: string
+  buttonLabel?: string
+  buttonTo?: string
 }
 
 function AboutIntro({
   image = '/img/home_2.jpg',
   overlayImage = '/img/home_1.jpg',
-  eyebrow = 'About us',
-  heading = 'Tailored services and the experience of unique holidays',
-  lead = 'Vivamus volutpat eros pulvinar velit laoreet, sit amet egestas erat dignissim.',
-  text = 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.',
-  signature = 'Maria...the Owner',
+  eyebrow = 'Welcome to Areca Crown Hariyali',
+  heading = 'The Warmth of Assam. The Calm of Kaziranga.',
+  lead = 'Set in Bosagaon beside National Highway 715, Areca Crown Hariyali brings together a peaceful natural setting and the comforts that make travel easier. Our eight-room property offers six Premium rooms and two Superior rooms, with breakfast, complimentary Wi-Fi and parking included in the listed stay plan.',
+  text = 'Whether you are travelling as a couple, with family or for the love of nature, settle into a welcoming base for your Kaziranga journey. Spend your day exploring, return to a restful room and enjoy hospitality inspired by the place we call home.',
+  signature = 'Inspired by Assam. Surrounded by Greenery.',
+  buttonLabel = 'Our Story',
+  buttonTo = '/about-us',
 }: Props) {
   return (
     <div className="container margin_120_95" id="first_section">
@@ -39,6 +44,11 @@ function AboutIntro({
             <p>{text}</p>
             <p>
               <em>{signature}</em>
+            </p>
+            <p>
+              <Link to={buttonTo} className="btn_1 outline">
+                {buttonLabel}
+              </Link>
             </p>
           </div>
         </div>

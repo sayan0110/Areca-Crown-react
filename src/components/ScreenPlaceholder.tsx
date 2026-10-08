@@ -7,7 +7,7 @@ function ScreenPlaceholder({ title }: Props) {
     <main>
       <div className="container margin_120_95" style={{ paddingTop: 80 }}>
         <div className="title">
-          <small>Paradise Hotel</small>
+          <small>Areca Crown Hariyali</small>
           <h2>{title}</h2>
         </div>
       </div>

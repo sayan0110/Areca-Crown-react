@@ -5,18 +5,15 @@ type Props = {
   heading: string
   lead: string
   paragraphs: string[]
-  hoursLabel: string
-  hours: string
-  hoursNote: string
-  phoneLabel: string
-  phone: string
-  phoneHref: string
+  // Label/value rows of the information panel on the right.
+  details: { label: string; value: string }[]
+  id?: string
 }
 
-// Restaurant intro: story on the left, opening hours and dining enquiry phone on the right.
-function RestaurantIntro({ eyebrow, heading, lead, paragraphs, hoursLabel, hours, hoursNote, phoneLabel, phone, phoneHref }: Props) {
+// Restaurant intro: story on the left, information panel on the right.
+function RestaurantIntro({ eyebrow, heading, lead, paragraphs, details, id = 'first_section' }: Props) {
   return (
-    <div className="container margin_120_95">
+    <div className="container margin_120_95" id={id}>
       <div className="row justify-content-between align-items-center">
         <div className="col-lg-5">
           <div className="intro">
@@ -28,24 +25,14 @@ function RestaurantIntro({ eyebrow, heading, lead, paragraphs, hoursLabel, hours
           </div>
         </div>
         <div className="col-lg-5">
-          <div>
-            <ul>
-              <li className="d-flex justify-content-between mb-2">
-                <strong>{hoursLabel}</strong>
-                <span>{hours}</span>
+          <ul>
+            {details.map(({ label, value }) => (
+              <li key={label} className="d-flex justify-content-between mb-2">
+                <strong>{label}</strong>
+                <span>{value}</span>
               </li>
-              <li>{hoursNote}</li>
-            </ul>
-            <p>
-              <a href={phoneHref}>
-                <i className="bi bi-telephone"></i>
-                <span>
-                  <em>{phoneLabel}</em>
-                  {phone}
-                </span>
-              </a>
-            </p>
-          </div>
+            ))}
+          </ul>
         </div>
       </div>
     </div>

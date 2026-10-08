@@ -2,11 +2,15 @@ import { useEffect } from 'react'
 import commonScriptsUrl from '../js/common_scripts.js?url'
 import { loadScript } from '../utils/loadScript'
 import OwlCarousel from './OwlCarousel'
+import SectionTitle from './SectionTitle'
 
 type Props = {
   images: string[]
   group?: string
   buttonLabel?: string
+  eyebrow?: string
+  heading?: string
+  text?: string
 }
 
 const options = {
@@ -21,7 +25,7 @@ const options = {
 
 // Centered image carousel plus a "FullScreen Gallery" button that opens fslightbox
 // (bundled in common_scripts.js) on the same images.
-function RoomGallery({ images, group = 'gallery_1', buttonLabel = 'FullScreen Gallery' }: Props) {
+function RoomGallery({ images, group = 'gallery_1', buttonLabel = 'FullScreen Gallery', eyebrow, heading, text }: Props) {
   useEffect(() => {
     let cancelled = false
     loadScript(commonScriptsUrl).then(() => {
@@ -36,6 +40,13 @@ function RoomGallery({ images, group = 'gallery_1', buttonLabel = 'FullScreen Ga
   return (
     <div className="bg_white add_bottom_120">
       <div className="container-fluid p-lg-0">
+        {eyebrow && heading && (
+          <div className="container pt-5">
+            <SectionTitle className="mb-5" eyebrow={eyebrow} heading={heading}>
+              {text && <p>{text}</p>}
+            </SectionTitle>
+          </div>
+        )}
         <div data-cues="zoomIn">
           <OwlCarousel className="carousel_item_centered kenburns rounded-img" options={options}>
             {images.map((src, i) => (

@@ -1,120 +1,138 @@
 import PageHero from '../components/PageHero'
 import StoryBlock from '../components/StoryBlock'
+import Facilities from '../components/Facilities'
+import CenteredTextSection from '../components/CenteredTextSection'
 import FaqSection from '../components/FaqSection'
 import EnquirySection from '../components/EnquirySection'
+import { usePageMeta } from '../utils/usePageMeta'
 
 // assets/kaziranga.jpg is not in the project yet, so existing images stand in for it.
 const heroImage = '/img/hero_home_1.jpg'
 const kazirangaImage = '/img/home_2.jpg'
 
-const stories = [
+const experiences = [
   {
-    eyebrow: 'KAZIRANGA NATIONAL PARK',
-    heading: 'Discover a remarkable wildlife destination',
-    paragraphs: [
-      'Kaziranga National Park is a UNESCO World Heritage Site in Assam, known for the greater one-horned rhinoceros and its floodplain landscape. Grasslands, wetlands and woodland form the setting for a visit that rewards patience and attention.',
-      'Stay at Areca Crown Hariyali in Bosagaon beside NH 715 and make space in your itinerary to explore. Confirm your safari entry point and travel arrangements before setting out. The distance and travel time to each range depend on the route, so ask for guidance specific to your booking rather than relying on a general park distance.',
-    ],
+    icon: 'bi bi-binoculars',
+    title: 'Jeep Safari',
+    text: 'Explore Kaziranga through a permitted jeep safari and discover the park’s landscape from an authorised route. Safari access, slots and sightings vary. Confirm the operating range, permit requirements, charges and transport arrangements before booking.',
   },
   {
-    eyebrow: 'JEEP SAFARI',
-    heading: 'See Kaziranga from an authorised safari route',
-    paragraphs: [
-      'A jeep safari offers an opportunity to explore the park along its authorised routes. The experience is shaped by the range, current access and wildlife movement, with time to observe the landscape as well as look for animals.',
-      'Jeep safari is among the experiences listed by the property. Contact the team to discuss availability and arrangements for your dates. Confirm the range, reporting time, operator, permit requirements and total cost. Wildlife sightings cannot be guaranteed, and access remains subject to official conditions.',
-    ],
+    icon: 'bi bi-compass',
+    title: 'Elephant Safari',
+    text: 'Ask about permitted elephant safari availability for your dates. These outings operate under the applicable park arrangements and are subject to official permissions and capacity. Confirm the current rules, suitability and price before making plans.',
   },
   {
-    eyebrow: 'ELEPHANT SAFARI',
-    heading: 'Check the available safari options',
-    paragraphs: [
-      'Elephant safari is also listed among the property’s experiences. If you are interested, ask about current authorised availability, the operating arrangements and whether it is suitable for your party.',
-      'Safari schedules and access can change. Confirm the official requirements, permit availability and any guest restrictions before making a booking decision. Treat this as an enquiry option rather than an activity guaranteed with every hotel stay.',
-    ],
+    icon: 'bi bi-tree',
+    title: 'Nature Walk',
+    text: 'Take time for a nature walk in an approved, accessible area outside restricted wildlife zones. Ask about a suitable route and any guide arrangements. Enjoy the surroundings while respecting local access rules.',
   },
   {
-    eyebrow: 'NATURE WALKS',
-    heading: 'Spend time with the surroundings',
-    paragraphs: [
-      'A nature walk gives you a different pace after a road journey or safari outing. Take time to observe the surroundings and enjoy being outdoors without filling every hour with a scheduled activity.',
-      'Ask the team about available walk arrangements, the route, duration and any guidance required. Nature walks should follow safe, permitted routes and must not be assumed to include unrestricted walking inside the national park. Suitable conditions, footwear and local advice matter.',
-    ],
+    icon: 'bi bi-houses',
+    title: 'Village Walk',
+    text: 'Discover the quieter side of the region through a village visit or walk. Ask about suitable local arrangements and treat residents, homes and daily activities with respect. Seek permission before taking photographs of people.',
   },
   {
-    eyebrow: 'VILLAGE AND TEA GARDEN WALKS',
-    heading: 'Look beyond the safari itinerary',
-    paragraphs: [
-      'Village and tea garden walks are listed by the property as ways to explore the wider area. They can add a local perspective to your visit and create time to learn about the places around your accommodation.',
-      'Confirm the route, permissions, timing and charges before joining a walk. Respect residents, working spaces and any restrictions, and ask permission before photographing people. These visits depend on local arrangements and do not imply open access to every village or tea garden.',
-    ],
+    icon: 'bi bi-flower1',
+    title: 'Tea Garden Walk',
+    text: 'Explore tea garden surroundings where visitor access is permitted. Confirm the location, permission requirements and whether a guided visit can be arranged. Follow the estate’s directions during your visit.',
   },
   {
-    eyebrow: 'EVENING BONFIRE',
-    heading: 'Slow down at the end of the day',
-    paragraphs: [
-      'An evening bonfire is one of the experiences listed at Areca Crown Hariyali. It can provide a relaxed way to spend time together after a day outside, weather and arrangements permitting.',
-      'Enquire about availability for your dates, the timing and any separate charge. Bonfires should take place only where the property permits them and under suitable conditions. Confirm the arrangement in advance if it is an important part of your stay.',
-    ],
+    icon: 'bi bi-fire',
+    title: 'Evening Bonfire',
+    text: 'Ask about an evening bonfire at the property as a relaxed way to end the day. Availability depends on weather and safe operating conditions. Confirm arrangements and any additional charges in advance.',
   },
-  {
-    eyebrow: 'PLAN YOUR DAYS',
-    heading: 'A suggested two-night visit',
-    paragraphs: [
-      'On your arrival day, check in from 1 PM, settle into your room and spend the afternoon at a comfortable pace. Enjoy a meal at SEWABHAAT and review the next day’s confirmed travel and safari arrangements. An evening bonfire may be possible if the conditions and property arrangements allow.',
-      'Use the next day for a booked safari and leave time afterwards for rest or a suitable local walk. On departure day, enjoy breakfast and check out by 11 AM. This is a suggested itinerary, not a fixed package. Activities, permits and additional charges need separate confirmation.',
-    ],
-  },
-  {
-    eyebrow: 'RESPONSIBLE VISITING',
-    heading: 'Plan around the destination',
-    paragraphs: [
-      'Assam Forest Department guidance identifies November to April as the best season to visit Kaziranga. Confirm current opening notices, range access and operating dates for your actual journey. General seasonal advice does not guarantee a particular activity will be available.',
-      'Follow park staff and guide instructions, stay on authorised routes, keep noise low and never feed wildlife. Carry waste out and respect the people and places you visit. A thoughtful plan makes room for the conditions that protect both visitors and the destination.',
-    ],
-  },
+]
+
+const itinerary = [
+  { icon: 'bi bi-sunrise', title: 'Morning', text: 'Begin with your confirmed wildlife outing, allowing time for the required reporting and travel arrangements. Coordinate breakfast timing with the hotel if you have an early start.' },
+  { icon: 'bi bi-sun', title: 'Midday', text: 'Return to Areca Crown Hariyali to rest. Ask SEWABHAAT about available lunch arrangements and take a pause before your next outing.' },
+  { icon: 'bi bi-cloud-sun', title: 'Afternoon', text: 'Choose an available village visit, tea garden walk or nature walk suited to the day’s conditions and local permissions.' },
+  { icon: 'bi bi-moon-stars', title: 'Evening', text: 'Return for a relaxed evening. If conditions allow and arrangements are confirmed, enjoy an evening bonfire before settling in for the night.' },
 ]
 
 const faqs = [
   {
-    question: 'What experiences are listed by the hotel?',
-    answer: 'The property lists evening bonfires, jeep safaris, elephant safaris, nature walks, and village and tea garden walks. Confirm availability, charges and arrangements for your dates.',
+    question: 'Can I ask the hotel about safaris?',
+    answer: 'Yes. Contact the team about jeep safari and permitted elephant safari options for your dates. Confirm the actual provider, permissions, availability and charges.',
   },
   {
-    question: 'Are safaris included in the room tariff?',
-    answer: 'Safaris are not stated as room inclusions. Confirm permits, operators, charges and arrangements separately.',
-  },
-  {
-    question: 'When should I visit Kaziranga?',
-    answer: 'Assam Forest Department guidance identifies November to April as the best season. Check current official access and opening notices before travel.',
-  },
-  {
-    question: 'Can I walk inside Kaziranga National Park?',
-    answer: 'Do not assume that a nature walk includes park access. Walk only on safe, permitted routes and follow official guidance.',
+    question: 'Are activities included in the room tariff?',
+    answer: 'No activity inclusion has been confirmed in the listed room plan. Request activity prices separately before booking.',
   },
   {
     question: 'Are wildlife sightings guaranteed?',
-    answer: 'No. Sightings depend on wildlife movement, conditions and the safari route.',
+    answer: 'No. Wildlife sightings depend on natural conditions and cannot be guaranteed.',
+  },
+  {
+    question: 'Can I explore villages and tea gardens?',
+    answer: 'Ask the team about suitable local visits and permitted access. Confirm arrangements and any guide or transport requirements before setting out.',
   },
 ]
 
 function ExploreKaziranga() {
+  usePageMeta(
+    'Explore Kaziranga | Areca Crown Hariyali',
+    'Explore Kaziranga from Areca Crown Hariyali. Ask about jeep safaris, nature walks, village visits, tea garden walks and available local experiences.',
+  )
+
   return (
     <main>
       <PageHero
         kenburns
-        eyebrow="Areca Crown Hariyali · Kaziranga"
-        title="Explore Kaziranga"
-        text="Wildlife, walks and time outdoors, with Areca Crown Hariyali as your place to return to."
+        eyebrow="Explore Kaziranga"
+        title="Wildlife, Greenery and the Spirit of Assam"
+        text="Make your stay more than a stop along the road. Discover Kaziranga’s wildlife landscape, spend time outdoors and explore the village life and tea garden surroundings that add character to your Assam journey."
         image={heroImage}
       />
 
-      {stories.map((story, i) => (
-        <StoryBlock key={story.eyebrow} {...story} image={kazirangaImage} reverse={i % 2 === 0} pattern={i % 2 === 1} />
-      ))}
+      <StoryBlock
+        image={kazirangaImage}
+        eyebrow="Your Kaziranga journey"
+        heading="Discover a Place Best Experienced Slowly"
+        paragraphs={[
+          'Kaziranga National Park is a UNESCO World Heritage Site in Assam, recognised for its remarkable wildlife and its importance to the conservation of the greater one-horned rhinoceros. Its landscape includes grasslands, wetlands and woodland, creating a distinctive setting for nature-focused travel.',
+          'Use Areca Crown Hariyali as your base to plan a visit that balances wildlife outings with quieter local experiences. Ask our team about activities for your travel dates and confirm permissions, availability and costs before finalising your itinerary.',
+        ]}
+        button={{ label: 'Ask About Local Experiences', to: '/contact-us#enquiry' }}
+        reverse
+      />
+
+      <div className="pattern_2">
+        <div className="container margin_120_95">
+          <Facilities
+            eyebrow="Wildlife • Nature • Culture"
+            heading="Make Room for Discovery"
+            text="Choose the experiences that interest you, then confirm the available arrangements for your visit. Activities are subject to weather, local access and any required official permissions."
+            facilities={experiences}
+            columnClass="col-xl-4 col-md-6 mb-4"
+          />
+        </div>
+      </div>
+
+      <div className="bg_white">
+        <div className="container margin_120_95">
+          <Facilities
+            eyebrow="A flexible day in Kaziranga"
+            heading="Explore at Your Own Pace"
+            text="Use this as a starting point for planning, rather than a confirmed activity package. Adjust the sequence to your permitted safari slot, weather and travel schedule."
+            facilities={itinerary}
+          />
+        </div>
+      </div>
+
+      <CenteredTextSection
+        id="visitor-information"
+        eyebrow="Before you set out"
+        heading="A Little Planning Makes the Day Easier"
+        paragraphs={[
+          'Confirm current park operations, entry requirements and reporting times before travel. Keep the documents required by the activity operator ready and follow the instructions of authorised guides. Wildlife sightings cannot be guaranteed. Avoid feeding animals, keep noise low and respect restricted areas.',
+          'The hotel’s room booking and activity arrangements should be confirmed separately. Request the full activity cost, including permits, transport or guide charges, before agreeing to an outing.',
+        ]}
+      />
 
       <FaqSection items={faqs} />
 
-      <EnquirySection />
+      <EnquirySection eyebrow="Plan your stay" heading="Plan a Stay with Time to Explore" text="Share your travel dates and interests. Confirm your room and ask about the experiences available during your visit to Kaziranga." />
     </main>
   )
 }

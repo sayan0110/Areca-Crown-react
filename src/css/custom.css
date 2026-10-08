@@ -46,3 +46,6 @@ header .logo_panel .areca-logo {
 .areca-faq p {
   margin: 12px 0 0;
 }
+.areca-faq summary {
+  font-size: 1rem;
+}

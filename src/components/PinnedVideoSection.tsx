@@ -7,6 +7,7 @@ type Props = {
   sources?: VideoSource[]
   eyebrow?: string
   heading?: ReactNode
+  text?: string
 }
 
 function PinnedVideoSection({
@@ -15,13 +16,9 @@ function PinnedVideoSection({
     { src: '/video/swimming_pool_2.webm', type: 'video/webm' },
     { src: '/video/swimming_pool_2.ogv', type: 'video/ogg' },
   ],
-  eyebrow = 'Luxury Hotel Experience',
-  heading = (
-    <>
-      Enjoy in a very
-      <br /> Immersive Relax
-    </>
-  ),
+  eyebrow = 'A moment in Kaziranga',
+  heading = 'Take a Closer Look at Your Stay',
+  text = 'Discover the character of Areca Crown Hariyali, from its areca-inspired façade to its green surroundings and welcoming spaces. Let your Kaziranga journey begin with a glimpse of the setting that awaits you.',
 }: Props) {
   return (
     <div className="pinned-image pinned-image--medium">
@@ -34,7 +31,11 @@ function PinnedVideoSection({
         <div className="pinned-image__container-overlay"></div>
       </div>
       <div className="pinned_over_content">
-        <SectionTitle className="white" eyebrow={eyebrow} heading={heading} animated eyebrowDelay={200} headingDelay={300} />
+        <SectionTitle className="white" eyebrow={eyebrow} heading={heading} animated eyebrowDelay={200} headingDelay={300}>
+          <div className='d-flex justify-content-center'>
+          <p className='w-50' style={{color: 'white'}}>{text}</p>
+          </div>
+        </SectionTitle>
       </div>
     </div>
   )

@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import ParallaxBackground from './ParallaxBackground'
 
 type Props = {
@@ -12,15 +13,30 @@ type Props = {
   scrollTo?: string
   // Slow zoom on the background image (template `kenburns`).
   kenburns?: boolean
+  // Optional call-to-action button under the text. A route renders a Link, anything else a plain anchor.
+  cta?: { label: string; to: string }
 }
 
 // Inner-page hero ("hero medium-height" / "hero full-height") with a background image and centred title.
-function PageHero({ title, eyebrow, text, image = '/img/hero_home_1.jpg', fullHeight = false, narrow = false, scrollTo, kenburns = false }: Props) {
+function PageHero({ title, eyebrow, text, image = '/img/hero_home_1.jpg', fullHeight = false, narrow = false, scrollTo, kenburns = false, cta }: Props) {
   const content = (
     <>
       {eyebrow && <small className="slide-animated one">{eyebrow}</small>}
       <h1 className="slide-animated two">{title}</h1>
       {text && <p className="slide-animated three">{text}</p>}
+      {cta && (
+        <p className="slide-animated three">
+          {cta.to.startsWith('/') ? (
+            <Link to={cta.to} className="btn_1 mt-2">
+              {cta.label}
+            </Link>
+          ) : (
+            <a href={cta.to} className="btn_1 mt-2" target="_blank" rel="noopener noreferrer">
+              {cta.label}
+            </a>
+          )}
+        </p>
+      )}
     </>
   )
 

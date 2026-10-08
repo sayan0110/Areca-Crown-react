@@ -16,11 +16,11 @@ type Props = {
 function EnquirySection({
   eyebrow = 'Areca Crown Hariyali',
   heading = 'Check Availability',
-  text = 'Share your dates and guests. Review and send your enquiry on WhatsApp. Your reservation requires hotel confirmation.',
+  text = 'Share your dates, guest count and preferred room category. Review and send your enquiry on WhatsApp. Your reservation requires hotel confirmation.',
   phone = '+91 69012 80887',
   phoneHref = 'tel:+916901280887',
   whatsappNumber = '916901280887',
-  categories = ['Premium', 'Superior'],
+  categories = ['Premium', 'Superior', 'Help Me Choose'],
 }: Props) {
   const [whatsappLink, setWhatsappLink] = useState('')
   const [status, setStatus] = useState('')
@@ -32,15 +32,16 @@ function EnquirySection({
       buildWhatsappLink(whatsappNumber, [
         'Hello Areca Crown Hariyali, I would like to enquire about a stay.',
         `Name: ${data.get('name')}`,
+        `Check-in date: ${data.get('arrival')}`,
+        `Check-out date: ${data.get('departure')}`,
         `Room category: ${data.get('category')}`,
-        `Check in: ${data.get('arrival')}`,
-        `Check out: ${data.get('departure')}`,
         `Adults: ${data.get('adults')}`,
         `Children: ${data.get('children')}`,
-        data.get('message') && `Requirements: ${data.get('message')}`,
+        data.get('message') && `Special requirements: ${data.get('message')}`,
+        'Please confirm availability, the complete price, inclusions and booking terms.',
       ]),
     )
-    setStatus('Your enquiry is ready. Continue on WhatsApp to send it to the hotel.')
+    setStatus('Your enquiry is ready. Review and send it on WhatsApp to contact the hotel.')
   }
 
   return (
@@ -67,18 +68,18 @@ function EnquirySection({
               </div>
               <div className="col-md-6">
                 <label>Room category</label>
-                <select name="category" className="form-select mb-3">
+                <select name="category" className="form-select form-control mb-3">
                   {categories.map((c) => (
                     <option key={c}>{c}</option>
                   ))}
                 </select>
               </div>
               <div className="col-md-6">
-                <label>Check in</label>
+                <label>Check-in</label>
                 <input className="form-control mb-3" name="arrival" type="date" required />
               </div>
               <div className="col-md-6">
-                <label>Check out</label>
+                <label>Check-out</label>
                 <input className="form-control mb-3" name="departure" type="date" required />
               </div>
               <div className="col-md-6">
@@ -95,6 +96,9 @@ function EnquirySection({
             <button className="btn_1" type="submit">
               Prepare Enquiry
             </button>
+            <p className="mt-3">
+              <small>Submitting an enquiry does not confirm a reservation. The hotel will confirm room availability, the complete price and booking terms.</small>
+            </p>
             <p id="enquiry-status" role="status" className="mt-3">
               {status}
             </p>

@@ -114,6 +114,11 @@ function Header() {
                   <li>
                     <Link to="/contact-us">Contact Us</Link>
                   </li>
+                  <li>
+                    <Link to="/contact-us#enquiry" className="btn_1">
+                      Check Availability
+                    </Link>
+                  </li>
                 </ul>
               </nav>
             </div>

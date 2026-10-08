@@ -16,9 +16,9 @@ function CenteredTextSection({ eyebrow, heading, paragraphs, buttonLabel, button
       <div className="container margin_120_95" id={id}>
         <SectionTitle className="text-center mb-5" eyebrow={eyebrow} heading={heading} />
         <div className="row justify-content-center">
-          <div className="col-lg-8">
+          <div className="col-lg-8 " style={{}}>
             {paragraphs.map((p) => (
-              <p key={p}>{p}</p>
+              <p className='fs-5 text-center' key={p}>{p}</p>
             ))}
             {buttonLabel && (
               <a className="btn_1" href={buttonHref}>
