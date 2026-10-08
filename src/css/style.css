@@ -3212,7 +3212,7 @@ a.box_contents:hover img {
 
 /*-------- 2.9 Restaurant --------*/
 .pattern_3 {
-  background: #fff url(../img/restaurant/pattern_menu.jpg) no-repeat center center;
+  /* background: #fff url(../img/restaurant/pattern_menu.jpg) no-repeat center center; */
   background-size: cover;
   background-attachment: scroll;
 }
