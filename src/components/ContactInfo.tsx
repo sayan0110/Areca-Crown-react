@@ -15,48 +15,58 @@ function ContactInfo({ address, email, phones, whatsapp, timings }: Props) {
   return (
     <div className="contact_info">
       <ul className="clearfix">
-        <li>
+        <li className='d-flex align-item-start gap-3'>
           <i className="bi bi-geo-alt"></i>
-          <h4>Property Address</h4>
-          <div>{address}</div>
-        </li>
-        <li>
-          <i className="bi bi-telephone"></i>
-          <h4>Phone</h4>
           <div>
-            <a href={firstPhone.href}>{firstPhone.label}</a>
-            {otherPhones.map(({ label, href }) => (
-              <p key={href}>
-                <a href={href}>{label}</a>
-              </p>
-            ))}
+            <h4>Property Address</h4>
+            <div>{address}</div>
+          </div>
+        </li>
+        <li className='d-flex align-item-start gap-3'>
+          <i className="bi bi-telephone"></i>
+          <div>
+            <h4>Phone</h4>
+            <div>
+              <a href={firstPhone.href}>{firstPhone.label}</a>
+              {otherPhones.map(({ label, href }) => (
+                <p key={href}>
+                  <a href={href}>{label}</a>
+                </p>
+              ))}
+            </div>
           </div>
         </li>
         {whatsapp && (
-          <li>
+          <li className='d-flex align-item-start gap-3'>
             <i className="bi bi-whatsapp"></i>
-            <h4>WhatsApp</h4>
-            <p>
-              <a href={whatsapp.href}>{whatsapp.label}</a>
-            </p>
+            <div>
+              <h4>WhatsApp</h4>
+              <p>
+                <a href={whatsapp.href}>{whatsapp.label}</a>
+              </p>
+            </div>
           </li>
         )}
-        <li>
+        <li className='d-flex align-item-start gap-3'>
           <i className="bi bi-envelope-paper"></i>
-          <h4>Email</h4>
-          <p>
-            <a href={`mailto:${email}`}>{email}</a>
-          </p>
+          <div>
+            <h4>Email</h4>
+            <p>
+              <a href={`mailto:${email}`}>{email}</a>
+            </p>
+          </div>
         </li>
         {timings && (
-          <li>
+          <li className='d-flex align-item-start gap-3'>
             <i className="bi bi-clock"></i>
-            <h4>Stay Timings</h4>
-            <p>
-              {timings[0]}
-              <br />
-              {timings[1]}
-            </p>
+            <div>
+              <h4>Stay Timings</h4>
+              <p>
+                {timings[0]}
+                <br />
+                {timings[1]}
+              </p>
+            </div>
           </li>
         )}
       </ul>

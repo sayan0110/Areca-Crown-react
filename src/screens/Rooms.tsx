@@ -1,9 +1,13 @@
 import PageHero from '../components/PageHero'
 import CenteredTextSection from '../components/CenteredTextSection'
-import RoomListItem from '../components/RoomListItem'
-import FaqSection from '../components/FaqSection'
-import EnquirySection from '../components/EnquirySection'
+import RoomShowcaseItem from '../components/RoomShowcaseItem'
+import ScrollRevealBanner from '../components/ScrollRevealBanner'
+import { PiWifiHighLight, PiMartiniLight, PiSwimmingPoolLight } from 'react-icons/pi'
+import { TbCarGarage } from 'react-icons/tb'
+// import FaqSection from '../components/FaqSection'
+// import EnquirySection from '../components/EnquirySection'
 import { usePageMeta } from '../utils/usePageMeta'
+import BookingSection from '../components/BookingSection'
 
 const inclusions = 'Breakfast • Free Wi-Fi • Parking'
 
@@ -42,6 +46,8 @@ const rooms = [
   },
 ]
 
+// Used by the FAQ section, which is commented out below.
+/*
 const faqs = [
   {
     question: 'How many rooms does the property have?',
@@ -60,6 +66,7 @@ const faqs = [
     answer: 'Call +91 69012 80887 or +91 70024 99397, or send a WhatsApp enquiry to +91 69012 80887. Your booking requires confirmation from the hotel.',
   },
 ]
+*/
 
 function Rooms() {
   usePageMeta(
@@ -84,20 +91,40 @@ function Rooms() {
 
       <div className="container margin_120_95 pb-0 pt-0">
         {rooms.map((room) => (
-          <RoomListItem key={room.title} {...room} />
+          // <RoomListItem key={room.title} {...room} />
+          <RoomShowcaseItem key={room.title} {...room} />
         ))}
       </div>
 
+      <ScrollRevealBanner
+        image={`${import.meta.env.BASE_URL}img/hero_home_1.jpg`}
+        eyebrow="Paradise Hotel"
+        heading="Main Facilities"
+        features={[
+          { icon: <TbCarGarage strokeWidth={1} />, label: 'Private Parking' },
+          { icon: <PiWifiHighLight />, label: 'High Speed Wifi' },
+          { icon: <PiMartiniLight />, label: 'Bar & Restaurant' },
+          { icon: <PiSwimmingPoolLight />, label: 'Swimming Pool' },
+        ]}
+      />
+
+      {/* Section: stay information (commented out, uncomment to restore)
       <CenteredTextSection
         id="stay-information"
         eyebrow="Before you book"
         heading="Plan Your Stay with Confidence"
         paragraphs={['Check-in is at 1:00 PM and check-out is at 11:00 AM. Please confirm the room setup for your group, applicable rate and taxes, additional guest charges, payment requirements and cancellation terms before confirming your reservation.']}
       />
+      */}
 
+      {/* Section: FAQs (commented out, uncomment to restore)
       <FaqSection items={faqs} />
+      */}
 
+      {/* Section: enquiry form (commented out, uncomment to restore)
       <EnquirySection eyebrow="Plan your stay" heading="Choose Your Room. Plan Your Dates." text="Send us your preferred category and travel dates. We will confirm room availability and the complete price for your stay." />
+      */}
+      <BookingSection />
     </main>
   )
 }

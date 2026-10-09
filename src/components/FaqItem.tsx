@@ -58,7 +58,7 @@ function FaqItem({ question, answer }: Props) {
     <details ref={detailsRef} className="areca-faq">
       <summary onClick={handleToggle}>{question}</summary>
       <div ref={contentRef} style={{ overflow: 'hidden' }}>
-        <p>{answer}</p>
+        <p className='QAanswer'>{answer}</p>
       </div>
     </details>
   )

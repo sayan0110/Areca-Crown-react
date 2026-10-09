@@ -38,7 +38,7 @@ function RoomGallery({ images, group = 'gallery_1', buttonLabel = 'FullScreen Ga
   }, [images, group])
 
   return (
-    <div className="bg_white add_bottom_120">
+    <div className="bg_white" style={{marginBottom: "1.5rem"}}>
       <div className="container-fluid p-lg-0">
         {eyebrow && heading && (
           <div className="container pt-5">

@@ -1,5 +1,5 @@
 import PageHero from '../components/PageHero'
-import StoryBlock from '../components/StoryBlock'
+import ZigzagStory from '../components/ZigzagStory'
 import Facilities from '../components/Facilities'
 import CenteredTextSection from '../components/CenteredTextSection'
 import FaqSection from '../components/FaqSection'
@@ -69,6 +69,19 @@ const faqs = [
   },
 ]
 
+const kazirangaExperience = [
+  {
+    image: kazirangaImage,
+    eyebrow: 'Your Kaziranga journey',
+    heading: 'Discover a Place Best Experienced Slowly',
+    paragraphs: [
+      'Kaziranga National Park is a UNESCO World Heritage Site in Assam, recognised for its remarkable wildlife and its importance to the conservation of the greater one-horned rhinoceros. Its landscape includes grasslands, wetlands and woodland, creating a distinctive setting for nature-focused travel.',
+      'Use Areca Crown Hariyali as your base to plan a visit that balances wildlife outings with quieter local experiences. Ask our team about activities for your travel dates and confirm permissions, availability and costs before finalising your itinerary.',
+    ],
+    button: { label: 'Ask About Local Experiences', to: '/contact-us#enquiry' },
+  },
+]
+
 function ExploreKaziranga() {
   usePageMeta(
     'Explore Kaziranga | Areca Crown Hariyali',
@@ -85,16 +98,8 @@ function ExploreKaziranga() {
         image={heroImage}
       />
 
-      <StoryBlock
-        image={kazirangaImage}
-        eyebrow="Your Kaziranga journey"
-        heading="Discover a Place Best Experienced Slowly"
-        paragraphs={[
-          'Kaziranga National Park is a UNESCO World Heritage Site in Assam, recognised for its remarkable wildlife and its importance to the conservation of the greater one-horned rhinoceros. Its landscape includes grasslands, wetlands and woodland, creating a distinctive setting for nature-focused travel.',
-          'Use Areca Crown Hariyali as your base to plan a visit that balances wildlife outings with quieter local experiences. Ask our team about activities for your travel dates and confirm permissions, availability and costs before finalising your itinerary.',
-        ]}
-        button={{ label: 'Ask About Local Experiences', to: '/contact-us#enquiry' }}
-        reverse
+      <ZigzagStory
+        items={kazirangaExperience}
       />
 
       <div className="pattern_2">
@@ -110,7 +115,7 @@ function ExploreKaziranga() {
       </div>
 
       <div className="bg_white">
-        <div className="container margin_120_95">
+        <div className="container">
           <Facilities
             eyebrow="A flexible day in Kaziranga"
             heading="Explore at Your Own Pace"

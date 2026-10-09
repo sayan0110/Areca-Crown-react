@@ -22,7 +22,7 @@ function LocalAmenity({ image, title, text, eyebrow = 'Local Amenities', to = '/
           </div>
         </div>
       </div>
-      <div className={`col-lg-5${reverse ? ' order-lg-1' : ''}`}>
+      <div className={`col-lg-6${reverse ? ' order-lg-1' : ''}`}>
         <SectionTitle eyebrow={eyebrow} heading={title} as="h3">
           <p>{text}</p>
           <p>

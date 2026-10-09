@@ -42,10 +42,12 @@ header .logo_panel .areca-logo {
   cursor: pointer;
   font-weight: 600;
   color: #333;
+  font-size: 1.3rem;
 }
 .areca-faq p {
   margin: 12px 0 0;
 }
-.areca-faq summary {
-  font-size: 1rem;
+.areca-faq p.QAanswer {
+  margin: 12px 0 0 1.7rem;
+  font-size: 1.2rem !important;
 }

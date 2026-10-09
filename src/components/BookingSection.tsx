@@ -55,7 +55,7 @@ function BookingSection({
               <div className="row">
                 <div className="col-lg-6">
                   <div className="custom_select">
-                    <select className="form-select" defaultValue="">
+                    <select className="form-select form-control" defaultValue="">
                       <option value="">Room category</option>
                       {rooms.map((r) => (
                         <option key={r}>{r}</option>

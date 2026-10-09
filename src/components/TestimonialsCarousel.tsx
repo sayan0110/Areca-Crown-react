@@ -20,7 +20,7 @@ function TestimonialsCarousel({ testimonials, backgroundImage = `${import.meta.e
   const current = testimonials[active]
 
   return (
-    <div className="parallax_section_1" style={{ position: 'relative', background: `url(${backgroundImage}) center / cover no-repeat` }}>
+    <div className="parallax_section_1" style={{ position: 'relative', background: `url(${backgroundImage}) center / cover no-repeat`, backgroundAttachment: 'fixed' }}>
       <div className="wrapper opacity-mask d-flex align-items-center justify-content-center text-center" style={{ backgroundColor: 'rgba(0, 0, 0, 0.5)' }}>
         <div className="container">
           <div className="row justify-content-center">
@@ -31,7 +31,7 @@ function TestimonialsCarousel({ testimonials, backgroundImage = `${import.meta.e
                   <div className="owl-stage">
                     <div className="owl-item active" style={{ width: '100%' }}>
                       <div>
-                        <div className="box_overlay">
+                        <div className="box_overlay box_overlay--stacked">
                           <div className="pic">
                             <figure>
                               <img src={current.image ?? `${import.meta.env.BASE_URL}img/testimonial_1.jpg`} alt="" className="img-circle" />

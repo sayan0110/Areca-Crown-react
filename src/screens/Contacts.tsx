@@ -1,6 +1,7 @@
 import PageHero from '../components/PageHero'
 import ContactInfo from '../components/ContactInfo'
 import ContactForm from '../components/ContactForm'
+import LocationMap from '../components/LocationMap'
 import CenteredTextSection from '../components/CenteredTextSection'
 import FaqSection from '../components/FaqSection'
 import BookingSection from '../components/BookingSection'
@@ -50,7 +51,7 @@ function Contacts() {
           <p>Contact us directly for availability, applicable rates, room arrangements and booking terms. For dining or local activities, include your requirements so the team can confirm available options.</p>
         </div>
         <div className="row justify-content-between">
-          <div className="col-xl-4 col-lg-5">
+          <div className="col-xl-5 col-lg-5">
             <ContactInfo
               address={
                 <>
@@ -78,13 +79,13 @@ function Contacts() {
         </div>
       </div>
 
-      <CenteredTextSection
+      <LocationMap
         id="location"
         eyebrow="Find us in Bosagaon"
         heading="Conveniently Located Beside NH715"
         paragraphs={['Areca Crown Hariyali is located beside National Highway 715 in Bosagaon, Kaziranga, in Assam’s Golaghat district. Contact us before arrival for directions and the confirmed property location.']}
-        buttonLabel="Ask for Directions"
-        buttonHref={directionsLink}
+        query="27.0391914,88.2638831"
+        title="Areca Crown Hariyali location"
       />
 
       <CenteredTextSection

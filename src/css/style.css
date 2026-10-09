@@ -194,7 +194,7 @@ a:hover, a:focus {
 }
 .title h3 {
   font-size: 31px;
-  font-size: 1.9375rem;
+  font-size: 2.3375rem;
 }
 .title.center {
   text-align: center;
@@ -2432,6 +2432,42 @@ a.box_cat_rooms:hover .background-image {
   margin-top: 3px;
   letter-spacing: normal !important;
 }
+/* Testimonial card laid out with flex: avatar, name and date on the left, comment on the right */
+.box_overlay.box_overlay--stacked {
+  display: flex;
+  align-items: center;
+  gap: 1.875rem;
+  padding: 2.8125rem;
+}
+.box_overlay--stacked .pic {
+  position: static;
+  flex: 0 0 9.375rem;
+  margin: 0;
+  text-align: center;
+}
+.box_overlay--stacked .pic figure {
+  margin: 0 auto 0.75rem;
+}
+.box_overlay--stacked .pic h4 {
+  position: static;
+}
+.box_overlay--stacked .comment {
+  flex: 1;
+  min-width: 0;
+}
+@media (max-width: 767px) {
+  .box_overlay.box_overlay--stacked {
+    flex-direction: column;
+    gap: 0;
+    padding: 1.875rem;
+  }
+  .box_overlay--stacked .pic {
+    flex: none;
+    width: 100%;
+    margin-bottom: 1.25rem;
+  }
+}
+
 .pic figure {
   width: 80px;
   height: 80px;
@@ -2577,6 +2613,83 @@ a.box_cat_rooms:hover .background-image {
   }
 }
 
+.row_list_version_1.room_card {
+  margin-bottom: 0;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.row_list_version_1.room_card .box_item_info {
+  max-width: none;
+  flex: 1;
+  margin: -5rem 1.875rem 0 1.875rem;
+}
+@media (max-width: 767px) {
+  .row_list_version_1.room_card .box_item_info {
+    margin: -3.125rem 0.625rem 0 0.625rem;
+  }
+}
+
+/* Room showcase: image with an info card overlapping its edge, alternating sides */
+.room_showcase {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 4.375rem;
+}
+.room_showcase__image {
+  flex: 0 0 62%;
+  height: 35rem;
+  border-radius: 0.625rem;
+  overflow: hidden;
+}
+.room_showcase__image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.room_showcase__card {
+  flex: 1;
+  margin: 6.5rem 0 0 -5.625rem;
+  padding: 1.875rem 1.875rem 0.9375rem 1.875rem;
+}
+.room_showcase__card h2 {
+  font-size: 1.5rem;
+  margin-bottom: 0.75rem;
+}
+.room_showcase__card p {
+  font-size: 0.9rem;
+}
+.room_showcase__card .facilities ul li {
+  font-size: 0.85rem;
+  margin-right: 1.125rem;
+}
+.room_showcase__card .facilities ul li i {
+  height: auto;
+  font-size: 1.25rem;
+  margin-right: 0.5rem;
+}
+.room_showcase--reverse {
+  flex-direction: row-reverse;
+}
+.room_showcase--reverse .room_showcase__card {
+  margin: 6.5rem -5.625rem 0 0;
+}
+@media (max-width: 991px) {
+  .room_showcase,
+  .room_showcase--reverse {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .room_showcase__image {
+    flex: none;
+    height: 30rem;
+  }
+  .room_showcase__card,
+  .room_showcase--reverse .room_showcase__card {
+    margin: -3.125rem 0.9375rem 0 0.9375rem;
+  }
+}
+
 .row_list_version_2 {
   margin-bottom: 120px;
 }
@@ -2703,6 +2816,100 @@ a.box_cat_rooms:hover .background-image {
 .reviews_sum_details strong {
   position: relative;
   top: -10px;
+}
+
+/* Guest review list: avatar and name on the left, date and quote on the right */
+.guest_review {
+  display: flex;
+  gap: 1.5rem;
+  padding: 1.5rem;
+  margin-bottom: 1.875rem;
+  border-radius: 0.625rem;
+  background-color: rgba(151, 134, 103, 0.08);
+}
+.guest_review__user {
+  flex: 0 0 6rem;
+  text-align: center;
+}
+.guest_review__user h5 {
+  margin: 0;
+  font-size: 0.8125rem;
+}
+.guest_review__avatar {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 3.125rem;
+  height: 3.125rem;
+  margin-bottom: 0.625rem;
+  border-radius: 50%;
+  background-color: #978667;
+  color: #fff;
+  font-weight: 600;
+}
+.guest_review__content {
+  flex: 1;
+  min-width: 0;
+}
+.guest_review__content em {
+  display: block;
+  margin-bottom: 0.5rem;
+  text-align: right;
+  font-size: 0.8125rem;
+  color: #777;
+}
+.guest_review__content p {
+  margin: 0;
+}
+@media (max-width: 575px) {
+  .guest_review {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  .guest_review__user {
+    flex: none;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    text-align: left;
+  }
+  .guest_review__avatar {
+    margin-bottom: 0;
+  }
+  .guest_review__content em {
+    text-align: left;
+  }
+}
+
+/* Score bars beside the review list */
+.review_score {
+  margin-bottom: 1rem;
+}
+.review_score h6 {
+  margin-bottom: 0.25rem;
+  font-size: 1rem;
+  font-weight: 600;
+}
+.review_score__row {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+.review_score__track {
+  flex: 1;
+  height: 0.3125rem;
+  border-radius: 0.25rem;
+  overflow: hidden;
+  background-color: #e9ecef;
+}
+.review_score__fill {
+  height: 100%;
+  background-color: #978667;
+}
+.review_score__row strong {
+  flex: 0 0 2rem;
+  font-size: 0.875rem;
+  font-weight: 700;
 }
 
 .review_card {
@@ -3775,7 +3982,6 @@ a.box_contents:hover img {
   overflow: hidden;
   font-size: 120px;
   font-weight: bold;
-  margin-top: -60px;
 }
 .marquee .track {
   position: absolute;
@@ -3877,6 +4083,86 @@ a.box_contents:hover img {
   background-color: #ccc;
 }
 
+/* Full-width scroll reveal (--reveal goes 0 -> 1 while scrolling, set in PinnedVideoSection) */
+.reveal_section {
+  --reveal: 1;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  height: 75vh;
+  overflow: hidden;
+}
+.reveal_section__media {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background-color: #ccc;
+  transform: scale(calc(0.7 + 0.3 * var(--reveal)));
+  border-radius: calc(0.9375rem * (1 - var(--reveal)));
+  will-change: transform;
+}
+.reveal_section__media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+.reveal_section__overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+}
+
+/* Icon features row over a reveal banner, separated by thin vertical lines */
+.reveal_features {
+  display: flex;
+  list-style: none;
+  margin: 2.5rem 0 0 0;
+  padding: 0;
+}
+.reveal_features li {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.5rem 1rem;
+}
+.reveal_features li + li {
+  border-left: 1px solid rgba(255, 255, 255, 0.3);
+}
+.reveal_features__icon {
+  display: flex;
+  font-size: 3.5rem;
+  color: #ebd7b2;
+}
+.reveal_features__label {
+  color: #fff;
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+@media (max-width: 767px) {
+  .reveal_features {
+    flex-wrap: wrap;
+    row-gap: 1.5rem;
+  }
+  .reveal_features li {
+    flex: 0 0 50%;
+  }
+  .reveal_features li:nth-child(odd) {
+    border-left: 0;
+  }
+  .reveal_features__icon {
+    font-size: 2.5rem;
+  }
+  .reveal_features__label {
+    font-size: 1rem;
+  }
+}
+
 .pinned_over_content {
   text-align: center;
   padding: 0 60px;
@@ -3886,6 +4172,11 @@ a.box_contents:hover img {
   text-align: center;
   top: 50%;
   transform: translate3d(-50%, -50%, 0);
+}
+@media (min-width: 1200px) {
+  .pageHeroPara.slide-animated {
+    padding: 0 20rem;
+  }
 }
 @media (max-width: 767px) {
   .pinned_over_content {
@@ -4341,4 +4632,93 @@ textarea.form-control {
 
 .icon--order-success svg circle {
   animation: checkmark-circle 0.6s ease-in-out backwards;
+}
+.roomDetailsContainer {
+  max-width: 70%;
+  margin: auto;
+}
+.viewMenu {
+  position: fixed;
+  inset: 0;
+  z-index: 99999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow-y: auto;
+  background-color: rgba(0, 0, 0, 0.95);
+}
+.viewMenu__close {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  border: 0;
+  background: transparent;
+  color: #fff;
+  font-size: 1.75rem;
+  line-height: 1;
+  cursor: pointer;
+}
+.viewMenu__content {
+  width: 100%;
+  max-width: 45rem;
+  padding: 4rem 1.5rem;
+  color: #fff;
+  text-align: center;
+  padding-top: 36rem;
+}
+.viewMenu__content h2 {
+  margin-bottom: 2rem;
+  color: #fff;
+}
+.viewMenu__content ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.viewMenu__content li {
+  margin-bottom: 1.5rem;
+}
+.viewMenu__content h5 {
+  color: #ebd7b2;
+}
+.viewMenu__content p {
+  margin: 0;
+}
+.resturantTime {
+  font-size: 1.2rem;
+}
+/* Zigzag story rows (ZigzagStory) */
+.zigzag_image {
+  max-width: 100%;
+  height: 25rem;
+  width: 100%;
+  object-fit: cover;
+}
+.zigzag_row + .zigzag_row {
+  margin-top: 5rem;
+}
+@media (max-width: 991px) {
+  .zigzag_row .col-lg-5 + .col-lg-5 {
+    margin-top: 1.5rem;
+  }
+}
+
+/* Full-width map embed (LocationMap) */
+.location_map {
+  width: 100%;
+  height: 60vh;
+}
+.location_map iframe {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  /* Muted, silver-style map colours */
+  filter: grayscale(0.55) brightness(1.05) contrast(0.95);
+}
+.arecaLogo {
+  height: 5rem;
+}
+.arecaLogo img {
+  height: 100%;
 }

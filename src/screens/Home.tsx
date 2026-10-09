@@ -2,14 +2,18 @@ import Hero from '../components/Hero'
 import AboutIntro from '../components/AboutIntro'
 import PinnedVideoSection from '../components/PinnedVideoSection'
 import SectionTitle from '../components/SectionTitle'
-import RoomListItem from '../components/RoomListItem'
+import RoomCard from '../components/RoomCard'
 import { Link } from 'react-router-dom'
 import Facilities from '../components/Facilities'
 import { mainFacilities } from '../data/facilities'
 import LocalAmenity from '../components/LocalAmenity'
 import FaqSection from '../components/FaqSection'
+import GallerySlider from '../components/GallerySlider'
+import Marquee from '../components/Marquee'
 import BookingSection from '../components/BookingSection'
 import { usePageMeta } from '../utils/usePageMeta'
+import TestimonialsCarousel from '../components/TestimonialsCarousel'
+import { testimonials } from '../data/testimonials'
 
 const rooms = [
   {
@@ -20,7 +24,6 @@ const rooms = [
     facilities: [{ icon: 'bi bi-people', label: 'Occupancy: 2 to 3 guests' }],
     readMoreTo: '/premium-room',
     readMoreLabel: 'View Premium Room',
-    align: 'start' as const,
   },
   {
     image: `${import.meta.env.BASE_URL}img/rooms/3.jpg`,
@@ -30,8 +33,14 @@ const rooms = [
     facilities: [{ icon: 'bi bi-people', label: 'Occupancy: 2 to 3 guests' }],
     readMoreTo: '/superior-room',
     readMoreLabel: 'View Superior Room',
-    align: 'end' as const,
   },
+]
+
+const galleryImages = [
+  { src: `${import.meta.env.BASE_URL}img/rooms/1.jpg`, alt: 'Premium room' },
+  { src: `${import.meta.env.BASE_URL}img/rooms/3.jpg`, alt: 'Superior room' },
+  { src: `${import.meta.env.BASE_URL}img/local_amenities_1.jpg`, alt: 'Kaziranga surroundings' },
+  { src: `${import.meta.env.BASE_URL}img/local_amenities_3.jpg`, alt: 'Areca Crown Hariyali property' },
 ]
 
 const faqs = [
@@ -68,32 +77,42 @@ function Home() {
         <PinnedVideoSection />
       </div>
 
-      <div className="container margin_120_95">
-        <SectionTitle className="mb-3" eyebrow="Our accommodation" heading="Two Room Categories. A Welcoming Stay." animated headingDelay={200}>
-          <p>Choose between our Premium and Superior rooms for your visit to Kaziranga. Both categories welcome two to three guests and come with breakfast, free Wi-Fi and parking in the listed stay plan. Contact us to confirm the room arrangements and complete price for your dates.</p>
-        </SectionTitle>
-        {rooms.map((room) => (
-          <RoomListItem key={room.title} {...room} />
-        ))}
-        <p className="text-end">
-          <Link to="/rooms" className="btn_1 outline mt-2">
-            View All Rooms
-          </Link>
-        </p>
-        {/* <p>
-          <small>Listed tariffs are indicative. Please confirm the applicable rate, rate basis, taxes, inclusions and any additional guest charges for your travel dates.</small>
-        </p> */}
-      </div>
-
-      <div className="bg_white">
-        <div className="container margin_120_95">
-          <Facilities eyebrow="Stay comfortably" heading="Simple Comforts That Make Travel Easier" text="Enjoy the essentials of a comfortable Kaziranga stay, with a convenient location and thoughtful inclusions." facilities={mainFacilities} />
+      <div className="margin_120_95" style={{background: "#FAF8F5"}}>
+        <div className='container'>
+          <SectionTitle className="mb-3" eyebrow="Our accommodation" heading="Two Room Categories. A Welcoming Stay." animated headingDelay={200}>
+            <p>Choose between our Premium and Superior rooms for your visit to Kaziranga. Both categories welcome two to three guests and come with breakfast, free Wi-Fi and parking in the listed stay plan. Contact us to confirm the room arrangements and complete price for your dates.</p>
+          </SectionTitle>
+          <div className="row g-4">
+            {rooms.map((room) => (
+              <div key={room.title} className="col-lg-6">
+                <RoomCard {...room} />
+              </div>
+            ))}
+          </div>
+          <p className="text-center my-4">
+            <Link to="/rooms" className="btn_1 outline mt-2">
+              View All Rooms
+            </Link>
+          </p>
+          {/* <p>
+            <small>Listed tariffs are indicative. Please confirm the applicable rate, rate basis, taxes, inclusions and any additional guest charges for your travel dates.</small>
+          </p> */}
         </div>
       </div>
 
+      <div className="" style={{background: "#FAF8F5"}}>
+        <div className="container">
+          <Facilities eyebrow="Stay comfortably" heading="Simple Comforts That Make Travel Easier" text="Enjoy the essentials of a comfortable Kaziranga stay, with a convenient location and thoughtful inclusions." facilities={mainFacilities} />
+        </div>
+        <Marquee words={['Areca Crown Hariyali']} repeat={10} />
+      </div>
+
       <div className="container margin_120_95">
+        {/* <div className="title">
+          <h2 className='kazirangaHeadeing text-center'>Explore kaziranga</h2>
+        </div> */}
         <LocalAmenity
-          className="add_bottom_90"
+          className=""
           image={`${import.meta.env.BASE_URL}img/local_amenities_1.jpg`}
           eyebrow="Wildlife • Nature • Local life"
           title="Make Time for the Kaziranga Experience"
@@ -104,18 +123,20 @@ function Home() {
         <LocalAmenity
           reverse
           image={`${import.meta.env.BASE_URL}img/local_amenities_3.jpg`}
-          eyebrow="A glimpse of your stay"
-          title="See the Spaces. Picture Your Journey."
-          text="Explore photographs of our property, Premium and Superior rooms, common spaces and surroundings. Discover the details that give Areca Crown Hariyali its connection to Assam."
+          eyebrow="WILDLIFE • SAFARI"
+          title="Safaris in Kaziranga"
+          text="Kaziranga National Park is a UNESCO World Heritage Site, known for the greater one-horned rhinoceros. Ask us about permitted jeep and elephant safaris, then confirm slots, permits and charges before planning."
           to="/gallery"
-          buttonLabel="View Gallery"
+          buttonLabel="Explore Kaziranga"
         />
       </div>
 
-      <div className="bg_white">
+      <GallerySlider images={galleryImages} />
+
+      <div className="bg_white margin_120_95" style={{paddingTop: 0}}>
         <FaqSection items={faqs} />
       </div>
-
+      <TestimonialsCarousel testimonials={testimonials} />
       <BookingSection />
     </main>
   )

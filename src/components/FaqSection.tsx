@@ -14,7 +14,7 @@ type Props = {
 
 function FaqSection({ items, eyebrow = 'Useful information', heading = 'Before Your Visit' }: Props) {
   return (
-    <div className="container margin_120_95">
+    <div className="container">
       <div className="row">
         <div className="col-lg-4">
           <SectionTitle eyebrow={eyebrow} heading={heading} />

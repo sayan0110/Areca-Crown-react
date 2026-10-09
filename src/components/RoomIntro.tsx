@@ -30,7 +30,8 @@ function RoomIntro({ eyebrow, heading, paragraphs, features, id = 'first_section
               <ul>
                 {features.map(({ icon, label }) => (
                   <li key={label}>
-                    <i className={icon}></i> {label}
+                    <i className={icon}></i> 
+                    <span style={{fontSize: '1.2rem'}}>{label}</span>
                   </li>
                 ))}
               </ul>

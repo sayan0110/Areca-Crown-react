@@ -1,11 +1,14 @@
 import { useEffect, useRef, useState } from 'react'
 import { Link, useLocation } from 'react-router-dom'
+import logo from "../assets/transparentLogo.png"
 
 function Logo() {
   return (
-    <span className="areca-logo">
-      ARECA CROWN<small>HARIYALI</small>
-    </span>
+    <>
+      <div className='arecaLogo'>
+        <img src={logo} alt="" />
+      </div>
+    </>
   )
 }
 

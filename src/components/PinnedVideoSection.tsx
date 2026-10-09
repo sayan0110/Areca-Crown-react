@@ -1,5 +1,6 @@
 import type { ReactNode } from 'react'
 import SectionTitle from './SectionTitle'
+import { useScrollReveal } from '../utils/useScrollReveal'
 
 type Props = {
   image?: string
@@ -14,11 +15,14 @@ function PinnedVideoSection({
   heading = 'Take a Closer Look at Your Stay',
   text = 'Discover the character of Areca Crown Hariyali, from its areca-inspired façade to its green surroundings and welcoming spaces. Let your Kaziranga journey begin with a glimpse of the setting that awaits you.',
 }: Props) {
+  // Image starts inset and rounded, then grows to full width as the section scrolls into view.
+  const ref = useScrollReveal<HTMLDivElement>()
+
   return (
-    <div className="pinned-image pinned-image--medium">
-      <div className="pinned-image__container" id="section_video">
+    <div className="reveal_section" ref={ref}>
+      <div className="reveal_section__media">
         <img src={image} alt="" />
-        <div className="pinned-image__container-overlay"></div>
+        <div className="reveal_section__overlay"></div>
       </div>
       <div className="pinned_over_content">
         <SectionTitle className="white" eyebrow={eyebrow} heading={heading} animated eyebrowDelay={200} headingDelay={300}>

@@ -4,12 +4,14 @@ import RoomIntro from './RoomIntro'
 import Facilities from './Facilities'
 import RoomGallery from './RoomGallery'
 import RoomStayInfo from './RoomStayInfo'
+import GuestReviews, { type GuestReview } from './GuestReviews'
 import RoomBox from './RoomBox'
 import SectionTitle from './SectionTitle'
 import FaqSection from './FaqSection'
 import EnquirySection from './EnquirySection'
 import { roomGalleryImages, roomInformation, stayInclusions, type RoomInfo } from '../data/rooms'
 import { usePageMeta } from '../utils/usePageMeta'
+import BookingSection from './BookingSection'
 
 type Props = {
   room: RoomInfo
@@ -18,10 +20,12 @@ type Props = {
   otherImage: string
   heroTitle: string
   overviewHeading: string
+  // Optional guest reviews, shown under the photo slider.
+  reviews?: GuestReview[]
 }
 
 // Whole room detail screen (hero, overview, inclusions, gallery, stay info, other room, FAQ, enquiry form).
-function RoomDetail({ room, otherRoom, image, otherImage, heroTitle, overviewHeading }: Props) {
+function RoomDetail({ room, otherRoom, image, otherImage, heroTitle, overviewHeading, reviews }: Props) {
   const { name, count, tariff } = room
 
   usePageMeta(
@@ -68,7 +72,7 @@ function RoomDetail({ room, otherRoom, image, otherImage, heroTitle, overviewHea
         features={roomInformation(room)}
       />
 
-      <div className="container margin_120_95">
+      <div className="container margin_120_95" style={{paddingTop: 0}}>
         <Facilities
           eyebrow="Your stay includes"
           heading="Useful Comforts for a Relaxing Visit"
@@ -79,6 +83,8 @@ function RoomDetail({ room, otherRoom, image, otherImage, heroTitle, overviewHea
 
       <RoomGallery eyebrow="Take a closer look" heading={`Discover the ${name} Room`} text="Browse photographs of the room interior, sleeping area and bathroom to understand the space before planning your stay." images={roomGalleryImages} buttonLabel="View All Photos" />
 
+      {reviews && <GuestReviews reviews={reviews} />}
+
       <RoomStayInfo category={name} />
 
       <div className="container margin_120_95">
@@ -86,20 +92,20 @@ function RoomDetail({ room, otherRoom, image, otherImage, heroTitle, overviewHea
           <p>Compare our {otherRoom.name} category before making your choice. Both room categories include breakfast, free Wi-Fi and parking in the listed stay plan.</p>
         </SectionTitle>
         <div className="row">
-          <div className="col-xl-6 col-lg-6">
+          <div className="col-xl-8 col-lg-8 m-auto">
             <RoomBox image={otherImage} price={`Listed tariff ${otherRoom.tariff}`} title={`${otherRoom.name} Room`} to={otherRoom.path} />
+            <p className="mt-4">
+              <Link to={otherRoom.path} className="btn_1 outline">
+                View {otherRoom.name} Room
+              </Link>
+            </p>
           </div>
         </div>
-        <p className="mt-4">
-          <Link to={otherRoom.path} className="btn_1 outline">
-            View {otherRoom.name} Room
-          </Link>
-        </p>
       </div>
 
-      <FaqSection items={faqs} />
+      {/* <FaqSection items={faqs} /> */}
 
-      <EnquirySection eyebrow="Plan your stay" heading="Check Availability" />
+      <BookingSection />
     </main>
   )
 }

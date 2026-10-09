@@ -23,7 +23,7 @@ function PageHero({ title, eyebrow, text, image = `${import.meta.env.BASE_URL}im
     <>
       {eyebrow && <small className="slide-animated one">{eyebrow}</small>}
       <h1 className="slide-animated two">{title}</h1>
-      {text && <p className="slide-animated three">{text}</p>}
+      {text && <p className="slide-animated three pageHeroPara">{text}</p>}
       {cta && (
         <p className="slide-animated three">
           {cta.to.startsWith('/') ? (

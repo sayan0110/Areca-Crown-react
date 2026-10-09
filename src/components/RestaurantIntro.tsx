@@ -20,11 +20,11 @@ function RestaurantIntro({ eyebrow, heading, lead, paragraphs, details, id = 'fi
             <SectionTitle eyebrow={eyebrow} heading={heading} />
             <p className="lead">{lead}</p>
             {paragraphs.map((p) => (
-              <p key={p}>{p}</p>
+              <p className='lead' key={p}>{p}</p>
             ))}
           </div>
         </div>
-        <div className="col-lg-5">
+        <div className="col-lg-5 resturantTime">
           <ul>
             {details.map(({ label, value }) => (
               <li key={label} className="d-flex justify-content-between mb-2">
