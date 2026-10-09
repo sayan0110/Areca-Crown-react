@@ -5,10 +5,11 @@ import LocationMap from '../components/LocationMap'
 import CenteredTextSection from '../components/CenteredTextSection'
 import FaqSection from '../components/FaqSection'
 import BookingSection from '../components/BookingSection'
-import { whatsappLink } from '../utils/whatsapp'
+// import { whatsappLink } from '../utils/whatsapp'
 import { usePageMeta } from '../utils/usePageMeta'
 
-const directionsLink = whatsappLink('916901280887', ['Hello Areca Crown Hariyali, could you share directions and the confirmed property location?'])
+// Directions button on the location section, currently not shown.
+// const directionsLink = whatsappLink('916901280887', ['Hello Areca Crown Hariyali, could you share directions and the confirmed property location?'])
 
 const faqs = [
   {

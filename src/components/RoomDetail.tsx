@@ -7,8 +7,8 @@ import RoomStayInfo from './RoomStayInfo'
 import GuestReviews, { type GuestReview } from './GuestReviews'
 import RoomBox from './RoomBox'
 import SectionTitle from './SectionTitle'
-import FaqSection from './FaqSection'
-import EnquirySection from './EnquirySection'
+// import FaqSection from './FaqSection'
+// import EnquirySection from './EnquirySection'
 import { roomGalleryImages, roomInformation, stayInclusions, type RoomInfo } from '../data/rooms'
 import { usePageMeta } from '../utils/usePageMeta'
 import BookingSection from './BookingSection'
@@ -33,6 +33,8 @@ function RoomDetail({ room, otherRoom, image, otherImage, heroTitle, overviewHea
     `Explore the ${name} Room at Areca Crown Hariyali, Kaziranga. Listed tariff ${tariff} with breakfast, free Wi-Fi and parking. Enquire for availability.`,
   )
 
+  // Used by the FAQ section, which is commented out below.
+  /*
   const faqs = [
     {
       question: `What is the listed ${name} Room tariff?`,
@@ -47,6 +49,7 @@ function RoomDetail({ room, otherRoom, image, otherImage, heroTitle, overviewHea
       answer: 'Breakfast, complimentary Wi-Fi and parking are included in the listed stay plan.',
     },
   ]
+  */
 
   return (
     <main>
