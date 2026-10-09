@@ -65,7 +65,7 @@ function Header() {
     <header ref={headerRef} className={`fixed_header menu_v4 submenu_version animated${sticky ? ' sticky' : ''}${reveal === 'hidden' ? ' slideUp' : reveal === 'shown' ? ' slideDown' : ''}`}>
       <div className="container">
         <div className="row align-items-center">
-          <div className="col-3">
+          <div className="col-2">
             <Link to="/" className="logo_normal">
               <Logo />
             </Link>
@@ -73,7 +73,7 @@ function Header() {
               <Logo />
             </Link>
           </div>
-          <div className="col-9">
+          <div className="col-10">
             <div className="main-menu">
               <a href="#0" className="closebt open_close_menu">
                 <i className="bi bi-x"></i>
