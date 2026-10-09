@@ -19,7 +19,7 @@ function RoomIntro({ eyebrow, heading, paragraphs, features, id = 'first_section
     <div className="bg_white" id={id}>
       <div className="container margin_120_95">
         <div className="row justify-content-between">
-          <div className="col-lg-4">
+          <div className="col-xl-6 col-xxl-4">
             <SectionTitle eyebrow={eyebrow} heading={heading} />
             {paragraphs.map((p) => (
               <p key={p}>{p}</p>

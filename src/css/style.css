@@ -4173,9 +4173,22 @@ a.box_contents:hover img {
   top: 50%;
   transform: translate3d(-50%, -50%, 0);
 }
-@media (min-width: 1200px) {
-  .pageHeroPara.slide-animated {
+.pageHeroPara.slide-animated {
     padding: 0 20rem;
+  }
+@media (max-width: 1366px) {
+  .pageHeroPara.slide-animated {
+    padding: 0 10rem;
+  }
+  .room_facilities_list ul li {
+    width: 100%;
+  }
+  .hero .wrapper p {
+    font-size: 1.3rem;
+  }
+  .margin_120_95 {
+    padding-top: 50px !important;
+    padding-bottom: 65px !important;
   }
 }
 @media (max-width: 767px) {

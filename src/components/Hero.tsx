@@ -36,7 +36,7 @@ function Hero({
             </div>
           </div>
           <div className="row justify-content-center slide-animated three">
-            <div className="col-xl-10">
+            <div className="col-xl-12 col-xxl-10">
               <div className="row g-0 booking_form">
                 <div className="col-lg-4">
                   <div className="form-group">

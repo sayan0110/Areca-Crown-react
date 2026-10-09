@@ -95,7 +95,7 @@ function RoomDetail({ room, otherRoom, image, otherImage, heroTitle, overviewHea
           <p>Compare our {otherRoom.name} category before making your choice. Both room categories include breakfast, free Wi-Fi and parking in the listed stay plan.</p>
         </SectionTitle>
         <div className="row">
-          <div className="col-xl-8 col-lg-8 m-auto">
+          <div className="col-xxl-8 col-xl-10 col-lg-8 m-auto">
             <RoomBox image={otherImage} price={`Listed tariff ${otherRoom.tariff}`} title={`${otherRoom.name} Room`} to={otherRoom.path} />
             <p className="mt-4">
               <Link to={otherRoom.path} className="btn_1 outline">

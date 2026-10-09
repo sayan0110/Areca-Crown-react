@@ -47,7 +47,7 @@ function PageHero({ title, eyebrow, text, image = `${import.meta.env.BASE_URL}im
         <div className="container">
           {narrow ? (
             <div className="row justify-content-center">
-              <div className="col-lg-8">{content}</div>
+              <div className="col-xxl-8 col-xl-10">{content}</div>
             </div>
           ) : (
             content
