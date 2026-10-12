@@ -16,8 +16,26 @@ function Header() {
   const { pathname } = useLocation()
   const headerRef = useRef<HTMLElement>(null)
   const [sticky, setSticky] = useState(false)
+  const [menuOpen, setMenuOpen] = useState(false)
+  const [submenuOpen, setSubmenuOpen] = useState(false)
   // Headroom-style reveal: 'hidden' while scrolling down, 'shown' when scrolling back up.
   const [reveal, setReveal] = useState<'initial' | 'hidden' | 'shown'>('initial')
+
+  // Close the mobile menu whenever the route changes.
+  useEffect(() => {
+    setMenuOpen(false)
+    setSubmenuOpen(false)
+  }, [pathname])
+
+  // Close the mobile menu if the viewport grows to the desktop layout.
+  useEffect(() => {
+    const mq = window.matchMedia('(min-width: 992px)')
+    const onChange = () => {
+      if (mq.matches) setMenuOpen(false)
+    }
+    mq.addEventListener('change', onChange)
+    return () => mq.removeEventListener('change', onChange)
+  }, [])
 
   useEffect(() => {
     const OFFSET = 50
@@ -62,7 +80,12 @@ function Header() {
   }, [pathname])
 
   return (
-    <header ref={headerRef} className={`fixed_header menu_v4 submenu_version animated${sticky ? ' sticky' : ''}${reveal === 'hidden' ? ' slideUp' : reveal === 'shown' ? ' slideDown' : ''}`}>
+    <header ref={headerRef} className={`fixed_header menu_v4 submenu_version animated${menuOpen ? ' menu_open' : ''}${sticky ? ' sticky' : ''}${reveal === 'hidden' ? ' slideUp' : reveal === 'shown' ? ' slideDown' : ''}`}>
+      <div
+        className={`menu_backdrop${menuOpen ? ' show' : ''}`}
+        onClick={() => setMenuOpen(false)}
+        aria-hidden="true"
+      ></div>
       <div className="container">
         <div className="row align-items-center">
           <div className="col-2">
@@ -74,8 +97,15 @@ function Header() {
             </Link>
           </div>
           <div className="col-10">
-            <div className="main-menu">
-              <a href="#0" className="closebt open_close_menu">
+            <div className={`main-menu${menuOpen ? ' show' : ''}`}>
+              <a
+                href="#0"
+                className="closebt open_close_menu"
+                onClick={(e) => {
+                  e.preventDefault()
+                  setMenuOpen(false)
+                }}
+              >
                 <i className="bi bi-x"></i>
               </a>
               <div className="logo_panel">
@@ -90,7 +120,17 @@ function Header() {
                     <Link to="/about-us">About Us</Link>
                   </li>
                   <li className="submenu">
-                    <Link to="/rooms" className="rooms-link">
+                    <Link
+                      to="/rooms"
+                      className={`rooms-link show-submenu${submenuOpen ? ' show_normal' : ''}`}
+                      onClick={(e) => {
+                        // On the mobile drawer the link only toggles the submenu ("All Rooms" navigates).
+                        if (window.matchMedia('(max-width: 991px)').matches) {
+                          e.preventDefault()
+                          setSubmenuOpen((o) => !o)
+                        }
+                      }}
+                    >
                       Rooms
                     </Link>
                     <ul>
@@ -125,7 +165,13 @@ function Header() {
                 </ul>
               </nav>
             </div>
-            <div className="hamburger_2 open_close_menu float-end">
+            <div
+              className="hamburger_2 open_close_menu float-end"
+              role="button"
+              aria-label="Open menu"
+              aria-expanded={menuOpen}
+              onClick={() => setMenuOpen((o) => !o)}
+            >
               <div className="hamburger__box">
                 <div className="hamburger__inner"></div>
               </div>

@@ -64,11 +64,12 @@ Author URI: https://themeforest.net/user/Ansonika/
   overflow: hidden;
 }
 #preloader.loaded {
-  animation: background 0.65s normal forwards cubic-bezier(0.785, 0.135, 0.15, 0.86);
+  animation: background 0.65s normal forwards
+    cubic-bezier(0.785, 0.135, 0.15, 0.86);
   transition-delay: 1s;
 }
 
-[data-loader=circle-side] {
+[data-loader="circle-side"] {
   position: absolute;
   width: 50px;
   height: 50px;
@@ -169,7 +170,8 @@ a {
   transition: all 0.3s ease-in-out;
   outline: none;
 }
-a:hover, a:focus {
+a:hover,
+a:focus {
   color: #24262d;
   text-decoration: none;
   outline: none;
@@ -401,12 +403,15 @@ a.animated_link.active::before {
 }
 
 .mouse {
-  background: #4e5559 linear-gradient(transparent 0%, transparent 50%, #ffffff 50%, #ffffff 100%);
+  background: #4e5559
+    linear-gradient(transparent 0%, transparent 50%, #ffffff 50%, #ffffff 100%);
   width: 36px;
   height: 58px;
   border-radius: 100px;
   background-size: 100% 200%;
-  animation: colorSlide 15s linear infinite, nudgeMouse 15s ease-out infinite;
+  animation:
+    colorSlide 15s linear infinite,
+    nudgeMouse 15s ease-out infinite;
 }
 
 .mouse:before,
@@ -472,7 +477,8 @@ a.animated_link.active::before {
   81% {
     background-color: #4e5559;
   }
-  90%, 100% {
+  90%,
+  100% {
     background-color: #ffffff;
   }
 }
@@ -489,11 +495,13 @@ a.animated_link.active::before {
     opacity: 0;
     transform: scale(0.4) translateY(40px);
   }
-  15%, 19% {
+  15%,
+  19% {
     opacity: 0;
     transform: scale(0.4) translateY(-20px);
   }
-  28%, 29.99% {
+  28%,
+  29.99% {
     opacity: 1;
     transform: scale(1) translateY(-20px);
   }
@@ -509,11 +517,13 @@ a.animated_link.active::before {
     opacity: 0;
     transform: scale(0.4) translateY(40px);
   }
-  45%, 49% {
+  45%,
+  49% {
     opacity: 0;
     transform: scale(0.4) translateY(-20px);
   }
-  58%, 59.99% {
+  58%,
+  59.99% {
     opacity: 1;
     transform: scale(1) translateY(-20px);
   }
@@ -529,11 +539,13 @@ a.animated_link.active::before {
     opacity: 0;
     transform: scale(0.4) translateY(40px);
   }
-  75%, 79% {
+  75%,
+  79% {
     opacity: 0;
     transform: scale(0.4) translateY(-20px);
   }
-  88%, 100% {
+  88%,
+  100% {
     opacity: 1;
     transform: scale(1) translateY(-20px);
   }
@@ -1130,7 +1142,7 @@ a.close_panel:hover {
   font-weight: 600;
   letter-spacing: -0.03em;
   text-decoration: none;
-  color: #FFF;
+  color: #fff;
   transition: opacity 0.3s ease-in-out;
 }
 @media (max-width: 767px) {
@@ -1169,9 +1181,9 @@ a.close_panel:hover {
   width: 100%;
   height: 100%;
   -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
   -o-object-position: 50% 50%;
-     object-position: 50% 50%;
+  object-position: 50% 50%;
   filter: grayscale(100%);
 }
 
@@ -1244,6 +1256,41 @@ ul > li:first-child .image {
   }
 }
 
+/* A transformed/will-change ancestor becomes the containing block of the fixed drawer,
+   so drop the reveal animation while the mobile menu is open. */
+@media only screen and (max-width: 991px) {
+  header.animated.menu_open {
+    animation: none;
+    transform: none;
+    will-change: auto;
+  }
+}
+.menu_backdrop {
+  display: none;
+}
+@media only screen and (max-width: 991px) {
+  .menu_backdrop {
+    display: block;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 99998;
+    background-color: rgba(0, 0, 0, 0.35);
+    -webkit-backdrop-filter: blur(0.5rem);
+    backdrop-filter: blur(0.5rem);
+    opacity: 0;
+    visibility: hidden;
+    transition:
+      opacity 0.4s ease,
+      visibility 0.4s ease;
+  }
+  .menu_backdrop.show {
+    opacity: 1;
+    visibility: visible;
+  }
+}
 @media only screen and (max-width: 991px) {
   .main-menu {
     overflow-y: auto;
@@ -1281,7 +1328,8 @@ ul > li:first-child .image {
   .main-menu #mainNav ul li a:before {
     display: none !important;
   }
-  .main-menu #mainNav ul li a:hover, .main-menu #mainNav ul li a.active {
+  .main-menu #mainNav ul li a:hover,
+  .main-menu #mainNav ul li a.active {
     color: #978667 !important;
   }
   .main-menu #mainNav ul li a.btn_1 {
@@ -1363,7 +1411,10 @@ ul > li:first-child .image {
     box-shadow: 0px 6px 12px 0px rgba(0, 0, 0, 0.175);
     transform: scale(0.4);
     transform-origin: 10% top;
-    transition: 0.15s linear, 0.1s opacity cubic-bezier(0.39, 0.575, 0.565, 1), 0.15s transform cubic-bezier(0.1, 1.26, 0.83, 1);
+    transition:
+      0.15s linear,
+      0.1s opacity cubic-bezier(0.39, 0.575, 0.565, 1),
+      0.15s transform cubic-bezier(0.1, 1.26, 0.83, 1);
     border-radius: 3px;
     opacity: 0;
     transition: all 0.2s ease;
@@ -1426,6 +1477,39 @@ ul > li:first-child .image {
     color: #978667 !important;
     padding-left: 20px;
     opacity: 1;
+  }
+}
+/* Tablets in landscape / large portrait (e.g. iPad Pro): keep the desktop nav on a single line */
+@media only screen and (max-width: 1199px) {
+  header .container {
+    max-width: 100%;
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+  }
+  header .row > .col-2 {
+    flex: 0 0 auto;
+    width: 9rem;
+  }
+  header .row > .col-10 {
+    flex: 1 1 0;
+    width: auto;
+    min-width: 0;
+  }
+  header nav ul {
+    white-space: nowrap;
+  }
+  header nav ul li {
+    margin-left: 1rem;
+    font-size: 0.9rem;
+  }
+  header nav ul li:first-child {
+    margin-left: 0;
+  }
+  .submenu_version .main-menu ul li .btn_1 {
+    padding: 0.75rem 1rem;
+  }
+  .arecaLogo {
+    height: 4rem !important;
   }
 }
 @media only screen and (max-width: 991px) {
@@ -1503,7 +1587,7 @@ ul > li:first-child .image {
 .jarallax > .jarallax-img {
   position: absolute;
   -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
   top: 0;
   left: 0;
   width: 100%;
@@ -1835,7 +1919,7 @@ footer .copy {
 #newsletter .form-group {
   position: relative;
 }
-#newsletter input[type=email] {
+#newsletter input[type="email"] {
   border: 0;
   height: 45px;
   border-radius: 3px;
@@ -1844,11 +1928,11 @@ footer .copy {
   background-color: rgba(255, 255, 255, 0.06);
   color: #fff;
 }
-#newsletter input[type=email]:focus {
+#newsletter input[type="email"]:focus {
   border: 0;
   box-shadow: none;
 }
-#newsletter button[type=submit] {
+#newsletter button[type="submit"] {
   position: absolute;
   right: 5px;
   color: #fff;
@@ -1863,7 +1947,7 @@ footer .copy {
   transition: all 0.3s ease-in-out;
   outline: none;
 }
-#newsletter button[type=submit]:hover {
+#newsletter button[type="submit"]:hover {
   opacity: 1;
 }
 
@@ -1960,7 +2044,7 @@ footer .copy {
   z-index: 1;
   color: #978667;
 }
-.booking_form input[type=submit] {
+.booking_form input[type="submit"] {
   transition: all 0.3s ease-in-out;
   color: #fff;
   font-weight: 600;
@@ -1976,12 +2060,12 @@ footer .copy {
   margin-right: 5px;
 }
 @media (max-width: 991px) {
-  .booking_form input[type=submit] {
+  .booking_form input[type="submit"] {
     margin: 20px 0 0 0;
     border-radius: 3px;
   }
 }
-.booking_form input[type=submit]:hover {
+.booking_form input[type="submit"]:hover {
   background-color: #978667;
   color: #fff;
 }
@@ -2017,7 +2101,7 @@ footer .copy {
   cursor: pointer;
   -webkit-appearance: none;
   -moz-appearance: none;
-       appearance: none;
+  appearance: none;
   text-indent: -9999px;
   box-shadow: none;
   border-radius: 50%;
@@ -2123,7 +2207,7 @@ footer .copy {
   -o-transition-delay: 0.8s;
 }
 #carousel-home .owl-carousel .owl-dots .owl-dot,
-#carousel-home .owl-carousel .owl-nav [class*=owl-]:focus {
+#carousel-home .owl-carousel .owl-nav [class*="owl-"]:focus {
   outline: none;
 }
 
@@ -2300,7 +2384,7 @@ a.box_cat_rooms:hover .background-image {
   border-style: solid;
   border-right: 0;
   -o-border-image: linear-gradient(to bottom, #ededed, rgba(0, 0, 0, 0)) 1 60%;
-     border-image: linear-gradient(to bottom, #ededed, rgba(0, 0, 0, 0)) 1 60%;
+  border-image: linear-gradient(to bottom, #ededed, rgba(0, 0, 0, 0)) 1 60%;
 }
 @media (max-width: 1199px) {
   .box_facilities {
@@ -2326,8 +2410,18 @@ a.box_cat_rooms:hover .background-image {
   border-width: 0;
 }
 .box_facilities.white {
-  -o-border-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.2), rgba(0, 0, 0, 0)) 1 60%;
-     border-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.2), rgba(0, 0, 0, 0)) 1 60%;
+  -o-border-image: linear-gradient(
+      to bottom,
+      rgba(255, 255, 255, 0.2),
+      rgba(0, 0, 0, 0)
+    )
+    1 60%;
+  border-image: linear-gradient(
+      to bottom,
+      rgba(255, 255, 255, 0.2),
+      rgba(0, 0, 0, 0)
+    )
+    1 60%;
 }
 .box_facilities.white h3 {
   color: #fff;
@@ -3883,13 +3977,14 @@ a.box_contents:hover img {
   visibility: hidden;
   transition: all 1s ease-in-out;
 }
-.hero.cat_hover .image-bg img, .hero.cat_hover .image-bg video {
+.hero.cat_hover .image-bg img,
+.hero.cat_hover .image-bg video {
   width: 100%;
   height: 100%;
   -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
   -o-object-position: 50% 50%;
-     object-position: 50% 50%;
+  object-position: 50% 50%;
 }
 .hero.cat_hover .container-item.active a {
   background-color: #f4f4f4;
@@ -3921,7 +4016,8 @@ a.box_contents:hover img {
   border-radius: 10px;
   padding: 30px;
 }
-.form_wp .form-control, .form_wp .nice-select {
+.form_wp .form-control,
+.form_wp .nice-select {
   border: none;
 }
 @media (max-width: 991px) {
@@ -4074,9 +4170,9 @@ a.box_contents:hover img {
   height: 100%;
   left: 0;
   -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
   -o-object-position: center;
-     object-position: center;
+  object-position: center;
   position: absolute;
   top: 0;
   width: 100%;
@@ -4174,8 +4270,8 @@ a.box_contents:hover img {
   transform: translate3d(-50%, -50%, 0);
 }
 .pageHeroPara.slide-animated {
-    padding: 0 20rem;
-  }
+  padding: 0 20rem;
+}
 @media (max-width: 1366px) {
   .pageHeroPara.slide-animated {
     padding: 0 10rem;
@@ -4503,11 +4599,15 @@ textarea.form-control {
 }
 
 /*-------- 3.7 Pagination --------*/
-.clear:after, .pagination:after, .clear:before, .pagination:before {
+.clear:after,
+.pagination:after,
+.clear:before,
+.pagination:before {
   content: "";
   display: table;
 }
-.clear:after, .pagination:after {
+.clear:after,
+.pagination:after {
   clear: both;
 }
 
@@ -4734,4 +4834,116 @@ textarea.form-control {
 }
 .arecaLogo img {
   height: 100%;
+}
+
+@media (max-width: 440px) {
+  .hero .wrapper p {
+    font-size: 0.85rem;
+  }
+  .hero .wrapper h1, .hero .wrapper h3 {
+    font-size: 1.6rem;
+  }
+  .booking_form input {
+    font-size: 0.8375rem;
+  }
+  .booking_form input, .booking_form input[type="submit"] {
+    height: 40px;
+  }
+  .booking_form .form-group i {
+    font-size: 1.0125rem;
+    top: 0;
+  }
+  .qty-buttons label {
+    top: 0.5rem; 
+  }
+  .qty-buttons input.qty{
+    padding-left: 6rem;
+  }
+  .qty-buttons input.qtyminus, .qty-buttons input.qtyplus {
+    width: 20px;
+    height: 20px;
+    top: 0.6rem;
+  }
+  .booking_form input[type="submit"] {
+    margin: 0;
+  }
+  .hero.full-height {
+    height: 100vh;
+  }
+  .arecaLogo {
+    height: 2.5rem !important;
+  }
+  .title h2, .title h3 {
+    font-size: 1.875rem;
+  }
+  .lead {
+    font-size: 1.05rem;
+  }
+  .marquee {
+    font-size: 4rem;
+    height: 3.6rem;
+  }
+  .areca-faq summary {
+    font-size: 0.9rem !important;
+  }
+  .areca-faq p.QAanswer {
+    margin: 4px 0 0 1.1rem;
+    font-size: 0.8rem !important;
+  }
+  .comment {
+    font-size: 0.825rem;
+  }
+  .mt-md {
+    margin-top: 1.3rem;
+  }
+  .logo_panel {
+    background-color: #fff;
+  }
+  .logo_panel>.arecaLogo {
+    height: 5rem !important;
+  }
+  .box_item_info .box_item_footer {
+    flex-direction: column;
+  }
+  .box_item_info .box_item_footer > a.btn_1, .box_item_info .box_item_footer>.btn_1 {
+    white-space: nowrap;
+  }
+  .reveal_features li + li {
+    border: none;
+  }
+  .room_facilities_list>ul>li>span {
+    font-size: 0.9rem !important;
+  }
+  .room_facilities_list ul li i {
+    font-size: 1.825rem;
+  }
+  .roomDetailsContainer {
+    max-width: 90%;
+  }
+  .guest_review {
+    padding: 0.8rem;
+  }
+  .col-lg-5.resturantTime>ul {
+    padding-left: 0.5rem;
+  }
+  .col-lg-5.resturantTime>ul>li {
+    font-size: 1rem;
+    flex-direction: column;
+    gap: 0
+  }
+  .col-lg-5.resturantTime>ul>li>span {
+    margin-left: 0.5rem;
+  }
+  .fs-5 {
+    font-size: 1rem !important;
+  }
+  .contact_info {
+    padding: 1rem;
+  }
+  .contact_info ul li i {
+    font-size: 1.45rem;
+  }
+  .contact_info ul li, .contact_info ul li p {
+    margin-bottom: 12px;
+  }
 }

@@ -16,10 +16,10 @@ function FaqSection({ items, eyebrow = 'Useful information', heading = 'Before Y
   return (
     <div className="container">
       <div className="row">
-        <div className="col-lg-4">
+        <div className="col-lg-5">
           <SectionTitle eyebrow={eyebrow} heading={heading} />
         </div>
-        <div className="col-lg-8">
+        <div className="col-lg-7">
           {items.map((item) => (
             <FaqItem key={item.question} {...item} />
           ))}

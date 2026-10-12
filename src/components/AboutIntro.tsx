@@ -41,8 +41,8 @@ function AboutIntro({
           <div className="intro">
             <SectionTitle eyebrow={eyebrow} heading={heading} />
             <p className="lead">{lead}</p>
-            <p>{text}</p>
-            <p>
+            <p className="lead">{text}</p>
+            <p className="lead">
               <em>{signature}</em>
             </p>
             <p>

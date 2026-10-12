@@ -27,7 +27,9 @@ function PinnedVideoSection({
       <div className="pinned_over_content">
         <SectionTitle className="white" eyebrow={eyebrow} heading={heading} animated eyebrowDelay={200} headingDelay={300}>
           <div className='d-flex justify-content-center'>
-          <p className='w-50' style={{color: 'white'}}>{text}</p>
+            <div className='col-xxl-8 col-xl-10'>
+              <p className='text-center' style={{color: 'white'}}>{text}</p>
+            </div>
           </div>
         </SectionTitle>
       </div>

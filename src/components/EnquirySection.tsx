@@ -47,7 +47,7 @@ function EnquirySection({
   return (
     <div className="container margin_120_95" id="enquiry">
       <div className="row justify-content-between">
-        <div className="col-lg-4">
+        <div className="col-lg-6">
           <SectionTitle eyebrow={eyebrow} heading={heading} />
           <p>{text}</p>
           <p className="phone_element">

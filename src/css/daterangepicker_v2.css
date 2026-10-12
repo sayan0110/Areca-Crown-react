@@ -743,3 +743,11 @@
 .container.lock-plugin .calendar > .days-grid > .day.locked:not(.start):not(.end) {
     background-image: repeating-linear-gradient(135deg, transparent, #ccc 2px, transparent 0, transparent 4px);
 }
+@media (max-width: 440px) {
+    .calendar > .daynames-row > .day,
+    .calendar > .daynames-row > .dayname,
+    .calendar > .days-grid > .day,
+    .calendar > .days-grid > .dayname {
+        font-size: 0.8rem !important;
+    }
+}

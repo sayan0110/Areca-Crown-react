@@ -20,7 +20,7 @@ function StoryBlock({ image, eyebrow, heading, paragraphs, reverse = false, patt
           <div className="col-lg-5">
             <img src={image} alt="" className="img-fluid rounded-img" />
           </div>
-          <div className="col-lg-5">
+          <div className="col-lg-5 mt-md">
             <SectionTitle eyebrow={eyebrow} heading={heading} />
             {paragraphs.map((p) => (
               <p key={p}>{p}</p>
